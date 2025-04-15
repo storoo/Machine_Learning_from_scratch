@@ -1,0 +1,374 @@
+\ProvidesPackage{mystyle}
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Options                                                          %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\newif\if@minionmath
+\newif\if@normal
+\DeclareOption{minionmath}{\@minionmathtrue}
+\DeclareOption{normal}{\@normaltrue}
+\ProcessOptions*
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Standard useful packages                                         %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{csquotes} 
+\usepackage{bbm}
+\usepackage{imakeidx}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{lipsum}
+\usepackage{authblk}
+\usepackage{marvosym}
+\usepackage{soul}
+\usepackage{siunitx}
+\usepackage{eurosym}
+\usepackage{pgfplots}
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Colors                                                           %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+% Solarized
+\definecolor{sbase03}{HTML}{002B36}
+\definecolor{sbase02}{HTML}{073642}
+\definecolor{sbase01}{HTML}{586E75}
+\definecolor{sbase00}{HTML}{657B83}
+\definecolor{sbase0}{HTML}{839496}
+\definecolor{sbase1}{HTML}{93A1A1}
+\definecolor{sbase2}{HTML}{EEE8D5}
+\definecolor{sbase3}{HTML}{FDF6E3}
+\definecolor{syellow}{HTML}{B58900}
+\definecolor{sorange}{HTML}{CB4B16}
+\definecolor{sred}{HTML}{DC322F}
+\definecolor{smagenta}{HTML}{D33682}
+\definecolor{sviolet}{HTML}{6C71C4}
+\definecolor{sblue}{HTML}{268BD2}
+\definecolor{scyan}{HTML}{2AA198}
+\definecolor{sgreen}{HTML}{859900}
+
+% Other colors
+\definecolor{tulip}{RGB}{69, 9, 67}
+\definecolor{love}{RGB}{128, 15, 37}
+\definecolor{champ}{RGB}{249, 205, 173}
+\definecolor{lobster}{RGB}{255, 64, 64}
+\definecolor{dutch}{RGB}{22, 147, 165}
+\definecolor{slate}{RGB}{42, 54, 59}
+
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Hyperlinks                                                       %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\usepackage{url} % Allows for printing of URLs with TeX symbols that normally wouldn't be printed such as "~"
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=Blue,  %choose some color if you want links to stand out
+	citecolor = SkyBlue,
+	urlcolor = slate,
+	pdfencoding=unicode,
+	hypertexnames = true,
+}
+
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  PDF bookmarks                                                    %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+% Adds section numbers to PDF bookmarks
+\usepackage{bookmark}
+\bookmarksetup{
+	numbered, 
+	open,
+}
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Citations                                                        %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+\usepackage{citationscheme}
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+%  Internal references                                              %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+%-------------------------------------------------------------------%
+%  Packages & basic commands                                        %
+%-------------------------------------------------------------------%
+
+\setcounter{secnumdepth}{2}
+
+\usepackage{amsthm}
+
+% The placement of this package is IMPORTANT. (It may not work if it is placed in a different order with respect to other packages.)
+\usepackage[noabbrev,nameinlink,capitalize]{cleveref} 
+
+%-------------------------------------------------------------------%
+%  Enumerated lists                                                 %
+%-------------------------------------------------------------------%
+
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{
+	itemsep  = 0.15cm,
+	label  = {\upshape (\arabic*)},
+	ref  = \arabic*,
+	leftmargin  = *
+}
+
+% Standard label
+\newcommand{\stlabel}[1]{{\upshape (\ref*{#1}.\arabic*)}}
+
+% For easy referencing of enumerated lists
+\newcommand{\enumref}[2]{(\hyperref[#1.#2]{\ref*{#1}.\ref*{#1.#2}})}
+
+%-------------------------------------------------------------------%
+%  Environment names                                                %
+%-------------------------------------------------------------------%
+
+\numberwithin{equation}{section} % Aligns all numbering with the equation
+
+%\swapnumbers % Makes numbers appear before environment names
+
+\patchcmd{\swappedhead}{(#3)}{\normalfont #3}{}{} % patch with 2 uses:
+% Use 1: remove auto parenthesis in \begin{theorem}[---]
+	% Use 2: avoid an issue with \sffamily and theoremstyles
+	
+	\theoremstyle{definition}
+	\newtheorem{nul}[equation]{}
+	\newtheorem{axiom}[equation]{Axiom}
+	\newtheorem{construction}[equation]{Construction}
+	\newtheorem{convention}[equation]{Convention}
+	\newtheorem{counterexample}[equation]{Counterexample}
+	\newtheorem{definition}[equation]{Definition}
+	\newtheorem{example}[equation]{Example}
+	\newtheorem{exercise}[equation]{Exercise}
+	\newtheorem{notation}[equation]{Notation}
+	\newtheorem{observation}[equation]{Observation}
+	\newtheorem{question}[equation]{Question}
+	\newtheorem{recollection}[equation]{Recollection}
+	\newtheorem{remark}[equation]{Remark}
+	\newtheorem{subexample}[equation]{Subexample}
+	\newtheorem{variant}[equation]{Variant}
+	\newtheorem{warning}[equation]{Warning}
+	\newtheorem{paragrafo}[equation]{}
+	
+	\newtheorem*{acknowledgments}{Acknowledgments}
+	
+	\theoremstyle{plain}
+	\newtheorem{conjecture}[equation]{Conjecture}
+	\newtheorem{corollary}[equation]{Corollary}
+	\newtheorem{lemma}[equation]{Lemma}
+	\newtheorem{proposition}[equation]{Proposition}
+	\newtheorem{theorem}[equation]{Theorem}
+	
+	%-------------------------------------------------------------------%
+	%  Cleverref names                                                  %
+	%-------------------------------------------------------------------%
+	
+	\crefname{section}{\S\!}{\S\S\!}
+	\Crefname{section}{Section}{Sections}
+	\crefname{subsection}{\S\!}{\S\S\!}
+	\Crefname{subsection}{Subsection}{Subsections}
+	
+	\crefformat{nul}{(#2#1#3)} % Has cref parenthesize "nul" references
+	\crefname{nul}{}{}
+	\Crefformat{nul}{(#2#1#3)}
+	\Crefname{nul}{}{}
+	
+	\crefname{axiom}{Axiom}{Axioms}
+	\Crefname{axiom}{Axiom}{Axioms}
+	\crefname{convention}{Convention}{Conventions}
+	\Crefname{convention}{Convention}{Conventions}
+	\crefname{conjecture}{Conjecture}{Conjectures}
+	\Crefname{conjecture}{Conjecture}{Conjectures}
+	\crefname{construction}{Construction}{Constructions}
+	\Crefname{construction}{Construction}{Constructions}
+	\crefname{corollary}{Corollary}{Corollaries}
+	\Crefname{corollary}{Corollary}{Corollaries}
+	\crefname{counterexample}{Counterexample}{Counterexamples}
+	\Crefname{counterexample}{Counterexample}{Counterexamples}
+	\crefname{definition}{Definition}{Definitions}
+	\Crefname{definition}{Definition}{Definitions}
+	\crefname{example}{Example}{Examples}
+	\Crefname{example}{Example}{Examples}
+	\crefname{exercise}{Exercise}{Exercises}
+	\Crefname{exercise}{Exercise}{Exercises}
+	\crefname{lemma}{Lemma}{Lemmata} 
+	\Crefname{lemma}{Lemma}{Lemmata} 
+	\crefname{notation}{Notation}{Notations}
+	\Crefname{notation}{Notation}{Notations}
+	\crefname{observation}{Observation}{Observations}
+	\Crefname{observation}{Observation}{Observations}
+	\crefname{proposition}{Proposition}{Propositions}
+	\Crefname{proposition}{Proposition}{Propositions}
+	\crefname{question}{Question}{Questions}
+	\Crefname{question}{Question}{Questions}
+	\crefname{recollection}{Recollection}{Recollections}
+	\Crefname{recollection}{Recollection}{Recollections}
+	\crefname{remark}{Remark}{Remarks}
+	\Crefname{remark}{Remark}{Remarks}
+	\crefname{subexample}{Subexample}{Subexamples}
+	\Crefname{subexample}{Subexample}{Subexamples}
+	\crefname{theorem}{Theorem}{Theorems}
+	\Crefname{theorem}{Theorem}{Theorems}
+	\crefname{variant}{Variant}{Variants}
+	\Crefname{variant}{Variant}{Variants}
+	\crefname{warning}{Warning}{Warnings}
+	\Crefname{warning}{Warning}{Warnings}
+	
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Font-specific packages                                           %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\if@minionmath
+	\usepackage{minionfonts}
+	\fi
+	
+	\if@normal
+	\usepackage{normalfonts}
+	\fi
+	
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Kerning and spacing                                              %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\usepackage{xspace}
+	
+	\frenchspacing
+	
+	\usepackage[final,factor=1100,stretch=10,shrink=10]{microtype}
+	
+	\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
+	{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
+		6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
+	
+	\SetExtraKerning[unit=space]
+	{encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+	{\textendash={400,400},   % en-dash, add more space around it
+		"28={ ,150},     % left bracket, add space from right
+		"29={150, },     % right bracket, add space from left
+		\textquotedblleft={ ,150},   % left quotation mark, space from right
+		\textquotedblright={150, }}  % right quotation mark, space from left
+	
+	\SetTracking{encoding={*}, shape=sc}{40}
+	
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Diagrams & commutative diagrams                                  %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\usepackage{tikzarrows}
+	\usepackage{tikz-cd}
+	\makeatletter
+	\let\tikz@lib@matrix@start@cell=\tikz@lib@matrix@normal@start@cell
+	\makeatother
+	
+	\usetikzlibrary{arrows, arrows.meta}
+	\usetikzlibrary{positioning}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{backgrounds}
+	\usetikzlibrary{decorations.pathmorphing}
+	
+	% Declare nice sphere shading: http://tex.stackexchange.com/a/54239/12440
+	\pgfdeclareradialshading[tikz@ball]{ball}{\pgfqpoint{0bp}{0bp}}{%
+		color(0bp)=(tikz@ball!0!white);
+		color(7bp)=(tikz@ball!0!white);
+		color(15bp)=(tikz@ball!70!black);
+		color(20bp)=(black!70);
+		color(30bp)=(black!70)}
+	\makeatother
+	
+	% Style to set camera angle, like PGFPlots `view` style
+	\tikzset{viewport/.style 2 args={
+			x={({cos(-#1)*1cm},{sin(-#1)*sin(#2)*1cm})},
+			y={({-sin(-#1)*1cm},{cos(-#1)*sin(#2)*1cm})},
+			z={(0,{cos(#2)*1cm})}
+	}}
+	
+	\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+				.. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+				and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+				.. (\tikztotarget)\tikztonodes}},
+		settings/.code={\tikzset{quiver/.cd,#1}
+			\def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+		quiver/.cd,pos/.initial=0.35,height/.initial=0}
+	
+	% Convert from spherical to cartesian coordinates
+	\newcommand{\ToXYZ}[2]{
+		{sin(#1)*cos(#2)}, % X coordinate
+		{cos(#1)*cos(#2)}, % Y coordinate
+		{sin(#2)}          % Z (vertical) coordinate
+	}
+	
+	\providecommand{\udots}{\Udots}
+	\makeatletter
+	\DeclareRobustCommand{\Udots}{%
+		\vcenter{\offinterlineskip
+			\halign{%
+				\hbox to .8em{##}\cr
+				\hfil.\cr\noalign{\kern.2ex}
+				\hfil.\hfil\cr\noalign{\kern.2ex}
+				.\hfil\cr}%
+		}%
+	}
+	\makeatother
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Standard macros                                                  %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\if@minionmath
+	\usepackage[minionmath]{standard_macros}
+	\fi
+	
+	\if@normal
+	\usepackage[normal]{standard_macros}
+	\fi
+	
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Semantic aliases                                                 %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\newcommand{\defn}{\textit}
+	
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  Symbol preferences                                               %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\renewcommand{\epsilon}{\varepsilon}
+	\renewcommand{\phi}{\varphi}
+	\renewcommand{\emptyset}{\varnothing}

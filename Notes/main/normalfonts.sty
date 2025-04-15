@@ -1,0 +1,82 @@
+\ProvidesPackage{normalfonts}
+
+%-------------------------------------------------------------------%
+%  Font & unicode input                                             %
+%-------------------------------------------------------------------%
+
+\usepackage[LGR,T1]{fontenc} % LGR allows for Greek text input
+%\usepackage[utf8]{inputenc} 
+\usepackage{CJKutf8}
+
+\usepackage[lcgreekalpha]{stix2}
+\usepackage{inconsolata} % Better monospaced font
+
+%-------------------------------------------------------------------%
+%  Special characters                                               %
+%-------------------------------------------------------------------%
+
+%-- Math mode -------------------------
+
+% Alias for \ell
+\newcommand{\el}{\ell}
+
+% Makes the ∈ symbol a more reasonable size (∊)
+\renewcommand{\in}{\smallin}
+
+% Replaces the standard square by a smaller one
+\renewcommand{\mdlgwhtsquare}{\mdwhtsquare}
+
+% Corrects spacing aroung *
+\renewcommand{\ast}{{\mathbin{*}}}
+
+% Math mode \yo
+\newcommand{\yo}{\begin{CJK}{UTF8}{min} \CJKfamily{goth} \mathchoice{\ensuremath{\text{\footnotesize よ}}}{\ensuremath{\text{\footnotesize よ}}}{\ensuremath{\text{\footnotesize ょ}}}{\ensuremath{\text{\tiny ょ}}} \end{CJK}}
+
+%-------------------------------------------------------------------%
+%  Language support                                                 %
+%-------------------------------------------------------------------%
+
+% Greek in text mode
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup} 
+
+% CJK characters in math mode
+\newcommand{\Japanese}[1]{\begin{CJK}{UTF8}{min} \CJKfamily{goth} \mathchoice{\ensuremath{\text{\footnotesize #1}}}{\ensuremath{\text{\footnotesize #1}}}{\ensuremath{\text{\tiny #1}}}{\ensuremath{\text{\tiny #1}}} \end{CJK}} 
+
+%-------------------------------------------------------------------%
+%  Letter shapes                                                    %
+%-------------------------------------------------------------------%
+
+\newcommand{\mathup}[1]{\mathrm{#1}}
+\newcommand{\mathbfup}[1]{\mathbf{#1}}
+
+% Compatibility of upright Greek lowercase with Minion
+\newcommand{\upalpha}{\mathrm{\alpha}}
+\newcommand{\upbeta}{\mathrm{\beta}}
+\newcommand{\upgamma}{\mathrm{\gamma}}
+\newcommand{\updelta}{\mathrm{\delta}}
+\newcommand{\upepsilon}{\mathrm{\epsilon}}
+\newcommand{\upzeta}{\mathrm{\zeta}}
+\newcommand{\upeta}{\mathrm{\eta}}
+\newcommand{\uptheta}{\mathrm{\theta}}
+\newcommand{\upiota}{\mathrm{\iota}}
+\newcommand{\upkappa}{\mathrm{\kappa}}
+\newcommand{\uplambda}{\mathrm{\lambda}}
+\newcommand{\upmu}{\mathrm{\mu}}
+\newcommand{\upnu}{\mathrm{\nu}}
+\newcommand{\upxi}{\mathrm{\xi}}
+\newcommand{\uppi}{\mathrm{\pi}}
+\newcommand{\uprho}{\mathrm{\rho}}
+\newcommand{\upsigma}{\mathrm{\sigma}}
+\newcommand{\uptau}{\mathrm{\tau}}
+\newcommand{\upupsilon}{\mathrm{\upsilon}}
+\newcommand{\upphi}{\mathrm{\phi}}
+\newcommand{\upchi}{\mathrm{\chi}}
+\newcommand{\uppsi}{\mathrm{\psi}}
+\newcommand{\upomega}{\mathrm{\omega}}
+
+
+%-------------------------------------------------------------------%
+%  Markers                                                          %
+%-------------------------------------------------------------------%
+
+\def\labelitemi{\textup{--}}

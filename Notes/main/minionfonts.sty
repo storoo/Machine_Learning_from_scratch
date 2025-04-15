@@ -1,0 +1,67 @@
+\ProvidesPackage{minionfonts}
+
+\usepackage{unicode-math}	% Uses unicode math: symbols can be used. With ISO standard all math is italic by default. Change ISO to TeX for normal TeX formatting
+
+\usepackage{unicode-minionmath}
+%-------------------------------------------------------------------%
+%  Fonts & unicode input                                            %
+%-------------------------------------------------------------------%
+
+\setmainfont[Ligatures={Common}, ItalicFont={Minion Pro Italic}, BoldFont={Minion Pro Semibold}, BoldItalicFont={Minion Pro Semibold Italic}]{Minion Pro}
+\setmonofont[Scale=MatchLowercase]{Myriad Pro Light}
+\setmathfont[
+Path 			= C:/Windows/Fonts
+Extension		= .otf,
+Scale 			= 1,
+Script 			= Math,
+SizeFeatures 	= {
+	{Size = -6, Font = MinionMath-Tiny,
+		Style = MathScriptScript},
+	{Size = 6-8.4, Font = MinionMath-Capt,
+		Style = MathScript},
+	{Size = 8.4-13, Font = MinionMath-Regular,
+		Style = MathScript},
+	{Size = 13-19.9, Font = MinionMath-Subh,
+		Style = MathScript},
+	{Size = 19.9-72, Font = MinionMath-Disp},
+	{Size = 72-, Font = MinionMath-Disp,
+		Style = MathScript}}]{MinionMath-Regular}
+	
+\setmathfont[range={\mathfrak, \mathcal}]{STIX Two Math}
+\newfontface\Swash{Minion Pro Italic}[Contextuals=Swash]
+\newfontfamily{\japanesefont}{Hiragino Sans GB W3}
+
+
+%-------------------------------------------------------------------%
+%  Special characters                                               %
+%-------------------------------------------------------------------%
+
+%-- Text mode -------------------------
+
+% Chevron
+\newcommand{\chevron}{\textup{}}
+
+%-- Math mode -------------------------
+
+% Italic version of \ell
+\newcommand{\el}{󰪓} 
+
+% Math mode \yo
+\newcommand{\yo}{{\japanesefont\mathchoice{\ensuremath{\text{\footnotesize よ}}}{\ensuremath{\text{\footnotesize よ}}}{\ensuremath{\text{\footnotesize ょ}}}{\ensuremath{\text{\tiny ょ}}}}} 
+
+%-------------------------------------------------------------------%
+%  Language support                                                 %
+%-------------------------------------------------------------------%
+
+% Greek in text mode -- doesn't require anything special. This is for compatibility with the normalfonts option.
+\newcommand{\textgreek}[1]{#1}
+
+% CJK characters in math mode
+\newcommand{\Japanese}[1]{{\japanesefont\mathchoice{\ensuremath{\text{\footnotesize #1}}}{\ensuremath{\text{\footnotesize #1}}}{\ensuremath{\text{\tiny #1}}}{\ensuremath{\text{\tiny #1}}}}} 
+
+%-------------------------------------------------------------------%
+%  Markers                                                          %
+%-------------------------------------------------------------------%
+
+% Items labelled with the chevron
+\def\labelitemi{\chevron}

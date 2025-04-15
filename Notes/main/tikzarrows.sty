@@ -1,0 +1,245 @@
+\ProvidesPackage{tikzarrows}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%-------------------------------------------------------------------%
+%  Basic setup                                                      %
+%-------------------------------------------------------------------%
+
+\usetikzlibrary{arrows,
+	arrows.meta,
+	bending,
+	calc,
+	decorations,
+	decorations.pathmorphing,
+	matrix,
+	shapes}
+
+
+%-------------------------------------------------------------------%
+%  Minion math arrow definitions                                    %
+%-------------------------------------------------------------------%
+
+% tip end  -- 1
+% back end -- 0.00512821
+% line end -- 0.774359
+% visual back end -- 0.574359
+% visual tip end -- 1
+\pgfdeclarearrow{
+name = minionto,
+parameters = { \the\pgfarrowlength\the\pgfarrowwidth},
+setup code = {
+  % The different end values:
+  \pgfarrowssettipend{\pgfarrowlength}
+  \pgfarrowssetbackend{0.00512821\pgfarrowlength}
+  \pgfarrowssetlineend{0.774369\pgfarrowlength}
+  \pgfarrowssetvisualbackend{0.574359\pgfarrowlength}
+  \pgfarrowssetvisualtipend{\pgfarrowlength}
+  % The hull
+  \pgfarrowsupperhullpoint{0cm}{0.914141\pgfarrowwidth}
+  \pgfarrowsupperhullpoint{0cm}{0.469697\pgfarrowwidth}
+  \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgfarrowwidth}
+  \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+  \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+  % Saves: the length and width
+  \pgfarrowssavethe\pgfarrowlength
+  \pgfarrowssavethe\pgflinewidth
+},
+drawing code = {
+  \pgfpathmoveto{\pgfpoint{0cm}{-0.914141\pgfarrowwidth}}
+  \pgfpathlineto{\pgfpoint{0.574359\pgfarrowlength}{0cm}}
+  \pgfpathlineto{\pgfpoint{0cm}{0.914141\pgfarrowwidth}}        
+  \pgfpathlineto{\pgfpoint{0.107692\pgfarrowlength}{\pgfarrowwidth}}
+  \pgfpathcurveto{\pgfpoint{0.528205\pgfarrowlength}{0.5\pgfarrowwidth}}
+		 {\pgfpoint{0.548718\pgfarrowlength}{0.469697\pgfarrowwidth}}
+		 {\pgfpoint{\pgfarrowlength}{0cm}}
+  \pgfpathcurveto{\pgfpoint{0.528205\pgfarrowlength}{-0.5\pgfarrowwidth}}
+		 {\pgfpoint{0.548718\pgfarrowlength}{-0.469697\pgfarrowwidth}}
+		 {\pgfpoint{0.107692\pgfarrowlength}{-\pgfarrowwidth}}
+  \pgfpathclose
+  \pgfusepathqfill
+},
+defaults = {length=0.22em, width=0.19em}
+}
+
+\pgfarrowsdeclarereversed{miniontail}{miniontail}{minionto}{minionto}
+
+\pgfdeclarearrow{
+name = minionhook,
+parameters = { \the\pgflinewidth},
+setup code = {
+  \pgfmathsetlength{\pgfarrowlength}{4.48\pgflinewidth}
+  \pgfarrowssetlineend{\pgflinewidth}
+  \pgfarrowssettipend{\pgfarrowlength}
+  % The hull
+  \pgfarrowsupperhullpoint{0cm}{0.914141\pgflinewidth}
+  \pgfarrowsupperhullpoint{0cm}{0.469697\pgflinewidth}
+  \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgflinewidth}
+  \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+  \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+  % Saves: the length and width
+  \pgfarrowssavethe\pgflinewidth
+  \pgfarrowssavethe\pgfarrowlength
+},
+drawing code = {
+  \pgfpathmoveto{\pgfpoint{0.25\pgfarrowlength}{-3.84\pgflinewidth}}
+  \pgfpathlineto{\pgfpoint{0.25\pgfarrowlength}{-2.86\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{-2.86\pgflinewidth}}
+		 {\pgfpoint{0.73660714\pgfarrowlength}{-1.9\pgflinewidth}}
+		 {\pgfpoint{0.73660714\pgfarrowlength}{-1.6\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{-0.54\pgflinewidth}}
+		 {\pgfpoint{0.35267857\pgfarrowlength}{-0.45\pgflinewidth}}
+		 {\pgfpoint{0.0\pgfarrowlength}{-0.51\pgflinewidth}}
+  \pgfpathlineto{\pgfpoint{0.0\pgfarrowlength}{0.5\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.97767857\pgfarrowlength}{0.7\pgflinewidth}}
+		 {\pgfpoint{0.99107143\pgfarrowlength}{-1.2\pgflinewidth}}
+		 {\pgfpoint{1.0\pgfarrowlength}{-1.6\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.95982143\pgfarrowlength}{-3.86\pgflinewidth}}
+		 {\pgfpoint{0.39732143\pgfarrowlength}{-3.86\pgflinewidth}}
+		 {\pgfpoint{0.25\pgfarrowlength}{-3.86\pgflinewidth}}
+  \pgfpathclose
+  \pgfusepathqfill
+},
+defaults = {length=0.22em, width=0.19em}
+}
+
+\pgfdeclarearrow{
+name = minionhook',
+parameters = { \the\pgflinewidth},
+setup code = {
+  \pgfmathsetlength{\pgfarrowlength}{4.48\pgflinewidth}
+  \pgfarrowssetlineend{\pgflinewidth}
+  \pgfarrowssettipend{\pgfarrowlength}
+  % The hull
+  \pgfarrowsupperhullpoint{0cm}{0.914141\pgflinewidth}
+  \pgfarrowsupperhullpoint{0cm}{0.469697\pgflinewidth}
+  \pgfarrowsupperhullpoint{0.107692\pgfarrowlength}{\pgflinewidth}
+  \pgfarrowshullpoint{0.574359\pgfarrowlength}{0cm}
+  \pgfarrowshullpoint{\pgfarrowlength}{0cm}
+  % Saves: the length and width
+  \pgfarrowssavethe\pgflinewidth
+  \pgfarrowssavethe\pgfarrowlength
+},
+drawing code = {
+  \pgfpathmoveto{\pgfpoint{0.25\pgfarrowlength}{3.84\pgflinewidth}}
+  \pgfpathlineto{\pgfpoint{0.25\pgfarrowlength}{2.86\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{2.86\pgflinewidth}}
+		 {\pgfpoint{0.73660714\pgfarrowlength}{1.9\pgflinewidth}}
+		 {\pgfpoint{0.73660714\pgfarrowlength}{1.6\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.73660714\pgfarrowlength}{0.54\pgflinewidth}}
+		 {\pgfpoint{0.35267857\pgfarrowlength}{0.45\pgflinewidth}}
+		 {\pgfpoint{0.0\pgfarrowlength}{0.51\pgflinewidth}}
+  \pgfpathlineto{\pgfpoint{0.0\pgfarrowlength}{-0.5\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.97767857\pgfarrowlength}{-0.7\pgflinewidth}}
+		 {\pgfpoint{0.99107143\pgfarrowlength}{1.2\pgflinewidth}}
+		 {\pgfpoint{1.0\pgfarrowlength}{1.6\pgflinewidth}}
+  \pgfpathcurveto{\pgfpoint{0.95982143\pgfarrowlength}{3.86\pgflinewidth}}
+		 {\pgfpoint{0.39732143\pgfarrowlength}{3.86\pgflinewidth}}
+		 {\pgfpoint{0.25\pgfarrowlength}{3.86\pgflinewidth}}
+  \pgfpathclose
+  \pgfusepathqfill
+},
+defaults = {length=0.22em, width=0.19em}
+}
+
+\pgfdeclaredecoration{single line}{initial}{\state{initial}[width=\pgfdecoratedpathlength-1sp]{\pgfpathmoveto{\pgfpointorigin}}\state{final}{\pgfpathlineto{\pgfpointorigin}}}
+
+%-------------------------------------------------------------------%
+%  Tikz setup                                                       %
+%-------------------------------------------------------------------%
+
+\tikzset{
+	>/.tip={minionto},
+	>->/.style = {miniontail-minionto},
+	<-</.style = {minionto-miniontail},
+	<->/.style = {minionto-miniontail},
+	hooked/.style = {minionhook-minionto},
+	hooked'/.style = {minionhook'-minionto},
+	RRight/.tip={Glyph[glyph math command=arrowkitHeadright]},
+	double distance={0.135em},
+	commutative diagrams/.cd, 
+	arrow style=tikz, 
+}
+
+%-------------------------------------------------------------------%
+%  Tikzcd setup                                                     %
+%-------------------------------------------------------------------%
+
+\tikzcdset{
+	crossing over/.style={
+		/tikz/preaction={
+			/tikz/draw,
+			/tikz/color=\pgfkeysvalueof{/tikz/commutative diagrams/background color},
+			/tikz/arrows=-,
+			/tikz/line width=\pgfkeysvalueof{/tikz/commutative diagrams/crossing over clearance}
+		}
+	}
+}
+
+\makeatletter
+
+% Fixes the tikzcd 'equals' to not have a visible line between the ends of the two equals lines
+
+  \def\tikzcdequalsignoffset{0.0925em}
+
+  % This helper macro finds the start and endpoints of a line between the source and target nodes and stores them in \sourcecoordinate and \targetcoordinate.
+  % #1 -- source node
+  % #2 -- target node
+  \def\findedgesourcetarget#1#2{
+      \let\sourcecoordinate\pgfutil@empty
+      \ifx\tikzcd@startanchor\pgfutil@empty % Check that the source doesn't have a specified anchor
+          \def\tempa{\pgfpointanchor{#1}{center}}% if so, start by taking the center of that coordinate
+      \else
+          \edef\tempa{\noexpand\pgfpointanchor{#1}{\expandafter\@gobble\tikzcd@startanchor}} % If it has an anchor, use that
+          \let\sourcecoordinate\tempa
+      \fi
+      \ifx\tikzcd@endanchor\pgfutil@empty % check that the target doesn't have a specified anchor
+          \def\tempb{\pgfpointshapeborder{#2}{\tempa}}% if so, our end point is the point on the boundary of node b that is in the direction of our initial start coordinate
+      \else
+          \edef\tempb{\noexpand\pgfpointanchor{#2}{\expandafter\@gobble\tikzcd@endanchor}}% If it has a specified anchor, use that
+      \fi
+      \let\targetcoordinate\tempb
+      \ifx\sourcecoordinate\pgfutil@empty%
+          \def\sourcecoordinate{\pgfpointshapeborder{#1}{\tempb}}%
+      \fi
+  }
+
+  \tikzset{myequal/.style = {
+      -,
+      to path={\pgfextra{
+          \findedgesourcetarget{\tikzcd@ar@start}{\tikzcd@ar@target} % find endpoints
+          % Rotate coordinate system so that line goes in x direction
+          \ifx\tikzcd@startanchor\pgfutil@empty
+              \def\tikzcd@startanchor{.center}
+          \fi
+          \ifx\tikzcd@endanchor\pgfutil@empty
+              \def\tikzcd@endanchor{.center}
+          \fi
+          \pgfmathanglebetweenpoints{\pgfpointanchor{\tikzcd@ar@start}{\expandafter\@gobble\tikzcd@startanchor}}{\pgfpointanchor{\tikzcd@ar@target}{\expandafter\@gobble\tikzcd@endanchor}}
+          \pgftransformrotate{\pgfmathresult}
+          % Draw the two lines 
+          \pgfpathmoveto{\pgfpointadd{\sourcecoordinate}{\pgfpoint{0}{\tikzcdequalsignoffset}}}
+          \pgfpathlineto{\pgfpointadd{\targetcoordinate}{\pgfpoint{0}{\tikzcdequalsignoffset}}}
+          \pgfpathmoveto{\pgfpointadd{\sourcecoordinate}{\pgfpoint{0}{-\tikzcdequalsignoffset}}}
+          \pgfpathlineto{\pgfpointadd{\targetcoordinate}{\pgfpoint{0}{-\tikzcdequalsignoffset}}}
+          \pgfsetlinewidth{0.05em}
+          \pgfusepath{draw}
+
+  }}}}
+
+\makeatother
+
+\tikzset{
+  /tikz/commutative diagrams/equal/.style=equals,
+    /tikz/commutative diagrams/equals/.style = myequal
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+%\pdfoutput=1
+\documentclass[leqno,dvipsnames,11pt]{article}
+\usepackage[normal]{mystyle}
+\usepackage{standard_macros}
+\usepackage[margin=1in]{geometry}
+\input{document_macros}
+
+\renewcommand{\contentsname}{\large Contents}
+\usepackage{citationscheme}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{xparse}
+\usepackage{fontawesome5}
+\usepackage{showlabels}
+
+% Optional but recommended styling
+\lstset{
+	language=Python,
+    breaklines=true,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{purple},
+	otherkeywords={self,True,False, keras, torch},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=1pt,
+	numberstyle=\tiny\color{gray},
+    showstringspaces=false,
+    keepspaces = true,
+    tabsize=2,
+    literate={\ \ }{{\ }}1,
+    captionpos=b
+}
+
+% Python-specific settings
+\lstdefinestyle{python}{
+    language=Python,
+    morekeywords={import,from,class,def,for,while,if,is,in,elif,else,try,except,finally,print,exec,with,as ,lambda},
+    emph={self},
+    emphstyle=\color{red}
+}
+
+%first parameter is the subfolder name, eg classification, GLM, etc. Second is the python file name, eg logistic_regression.py, and third is the function name, eg fit. The function will be extracted from the python file and displayed in the document.
+\NewDocumentCommand{\script}{mmm o}{%
+  \immediate\write18{python ../../extract_function.py ../../Implementations/#1/#2 #3 > ../../temp_function.py}%
+  \lstinputlisting[language=Python, #4]{../../temp_function.py}%
+}
+
+\addbibresource{references.bib}
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+% Title data                                                        %
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
+
+\title{\Large \textbf{ \textsc{Machine Learning from scratch}}}
+
+\author{\textsc{Santiago Toro}}
+%\author[2]{\textsc{Name 2}}
+%\author[3]{\textsc{Name 3}}
+%\author[4]{\textsc{Name 4}}
+%\author[5]{\textsc{Name 5}}
+%\author[6]{\textsc{Name 6}}
+%
+%\affil[1]{Université Bretagne Occidentale}
+%\affil[2]{Univ 2}
+%\affil[3]{Univ 3}
+%\affil[4]{Univ 4}
+%\affil[5]{Univ 5}
+%\affil[6]{Univ 6}
+
+\date{\normalsize \today}
+
+
+\begin{document}
+	
+\maketitle
+
+\begin{abstract}
+	\lipsum[1]
+\end{abstract}
+	
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\tableofcontents
+\cleardoublepage	
+
+	%Introduction
+%	\setcounter{section}{-1}
+
+	%FIRST PART%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\part{Preliminaries}
+	\input{../sections/introduction}
+	\input{../sections/calculus}
+	\input{../sections/probability}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%SECOND PART
+	\cleardoublepage
+	\part{Supervised Learning}
+	\input{../sections/regression}
+	\input{../sections/classification}	
+	\input{../sections/glm}
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	%THIRD PART
+	\cleardoublepage
+	\part{Deep Learning}
+	\input{../sections/neural_networks}
+
+%	\input{section5}
+%	
+%	\input{section6}
+%	
+%	\input{section7}
+%	
+%	\input{section8}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	%  References                                                       %
+	%-------------------------------------------------------------------%
+	%-------------------------------------------------------------------%
+	
+	\DeclareFieldFormat{labelnumberwidth}{#1}
+	\printbibliography[keyword=alph, heading=references]
+	\DeclareFieldFormat{labelnumberwidth}{{#1\adddot\midsentence}}
+	\printbibliography[heading=references, notkeyword=alph]
+	
+\end{document}	
