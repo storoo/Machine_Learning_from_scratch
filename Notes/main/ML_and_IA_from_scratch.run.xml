@@ -44,8 +44,7 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>ML_and_IA_from_scratch.aux</file>
-      <file>ML_and_IA_from_scratch-blx.bib</file>
+      <file>ML_and_IA_from_scratch.bcf</file>
     </provides>
     <requires type="dynamic">
       <file>ML_and_IA_from_scratch.bbl</file>
@@ -54,7 +53,6 @@
       <file>blx-dm.def</file>
       <file>blx-unicode.def</file>
       <file>blx-compat.def</file>
-      <file>blx-bibtex.def</file>
       <file>biblatex.def</file>
       <file>blx-natbib.def</file>
       <file>standard.bbx</file>
@@ -65,14 +63,13 @@
     </requires>
   </internal>
   <external package="biblatex" priority="5" active="0">
-    <generic>bibtex</generic>
+    <generic>biber</generic>
     <cmdline>
-      <binary>bibtex</binary>
-      <option>-min-crossrefs 2</option>
+      <binary>biber</binary>
       <infile>ML_and_IA_from_scratch</infile>
     </cmdline>
     <input>
-      <file>ML_and_IA_from_scratch.aux</file>
+      <file>ML_and_IA_from_scratch.bcf</file>
     </input>
     <output>
       <file>ML_and_IA_from_scratch.bbl</file>
@@ -81,14 +78,10 @@
       <file>ML_and_IA_from_scratch.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>ML_and_IA_from_scratch.aux</file>
-      <file>ML_and_IA_from_scratch-blx.bib</file>
+      <file>ML_and_IA_from_scratch.bcf</file>
     </requires>
     <requires type="editable">
       <file>references.bib</file>
-    </requires>
-    <requires type="static">
-      <file>biblatex.bst</file>
     </requires>
   </external>
 </requests>

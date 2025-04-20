@@ -1,0 +1,92 @@
+# Matplotlib style for LaTeX documents using STIX Two and Inconsolata fonts
+# Mimics Mathematica color cycle and aims for clear scatter plots.
+
+# --- Font Settings ---
+# Use LaTeX for text rendering to ensure exact font matching
+text.usetex : True
+# Specify the LaTeX packages needed for the fonts
+# text.latex.preamble : \
+# \usepackage[LGR,T1]{fontenc} \
+# \usepackage{amsmath} \
+# \usepackage{CJKutf8} \
+# \usepackage[lcgreekalpha]{stix2} \
+# \usepackage{inconsolata}
+
+# Define font families Matplotlib should attempt to use
+# The latex engine will handle the actual font selection via the preamble
+
+font.family         : serif
+font.serif          : STIX Two Text, Times New Roman, DejaVu Serif, Bitstream Vera Serif, serif
+font.sans-serif     : DejaVu Sans, Bitstream Vera Sans, sans-serif # Fallback if needed
+font.monospace      : Inconsolata, Consolas, DejaVu Sans Mono, Bitstream Vera Sans Mono, monospace
+
+# --- Text Sizes ---
+# Adjust base size to match typical LaTeX document size (e.g., 10pt, 11pt)
+font.size           : 10.0
+axes.labelsize      : 10.0
+axes.titlesize      : medium  # Relative to font.size (e.g., 12pt for 10pt base)
+legend.fontsize     : small   # Relative to font.size (e.g., 9pt for 10pt base)
+xtick.labelsize     : small
+ytick.labelsize     : small
+
+# --- Color Cycle (Mathematica-like) ---
+# Based on common representations of Mathematica's default cycle
+# Source: Various online discussions/examples, aiming for visual similarity
+axes.prop_cycle : cycler('color', ['#5E81B5', '#E07A5F', '#679C55', '#F2C14E', '#AD60CE', '#C75D62', '#79AFDB', '#444444'])
+# Blues, Orange, Green, Yellow, Purple, Reddish, Light Blue, Gray
+
+# --- Scatter Plot Settings ---
+# Reduce default marker size to mitigate overlap in dense plots
+# Note: For plt.scatter, size is often controlled by the 's' argument directly.
+# This affects markers used in plt.plot(..., marker='o') primarily.
+lines.markersize : 4
+# Options for scatter marker edges (can make dense plots cleaner):
+# scatter.edgecolors : face # Edges match face color
+# scatter.edgecolors : none # No marker edges
+
+# --- Lines ---
+lines.linewidth   : 1.5
+lines.solid_capstyle : round
+
+# --- Axes ---
+axes.linewidth    : 0.8  # Axis spine thickness
+axes.edgecolor    : black
+axes.facecolor    : white
+axes.grid         : True # Enable grid by default
+axes.axisbelow    : True # Grid/ticks below data
+
+# --- Grid ---
+grid.color        : #CCCCCC # Lighter gray grid
+grid.linestyle    : --
+grid.linewidth    : 0.6
+
+# --- Ticks ---
+xtick.direction   : out
+ytick.direction   : out
+xtick.major.size  : 4
+xtick.minor.size  : 2
+ytick.major.size  : 4
+ytick.minor.size  : 2
+xtick.major.width : 0.6
+xtick.minor.width : 0.4
+ytick.major.width : 0.6
+ytick.minor.width : 0.4
+
+# --- Legend ---
+legend.frameon      : False # No legend box frame
+legend.loc          : best
+legend.numpoints    : 1    # Number of marker points in legend
+legend.scatterpoints: 1    # Number of scatter points in legend
+
+# --- Figure ---
+figure.figsize    : 6, 4  # Default figure size in inches
+figure.facecolor  : white
+figure.edgecolor  : white
+
+# --- Saving Figures ---
+savefig.dpi         : 300   # Default DPI for saved figures
+savefig.format      : pdf   # Default format (vector friendly)
+savefig.bbox        : tight # Tight bounding box by default
+savefig.transparent : False
+# Use pdf backend for better LaTeX integration with fonts
+# backend : pdf # Often automatically selected when text.usetex=True

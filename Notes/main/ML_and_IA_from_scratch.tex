@@ -1,9 +1,10 @@
 %\pdfoutput=1
 \documentclass[leqno,dvipsnames,11pt]{article}
-\usepackage[normal]{mystyle}
+\usepackage[minionmath]{mystyle}
 \usepackage{standard_macros}
 \usepackage[margin=1in]{geometry}
 \input{document_macros}
+
 
 \renewcommand{\contentsname}{\large Contents}
 \usepackage{citationscheme}
@@ -14,6 +15,8 @@
 \usepackage{xparse}
 \usepackage{fontawesome5}
 \usepackage{showlabels}
+\usepackage{booktabs}
+
 
 % Optional but recommended styling
 \lstset{
@@ -108,8 +111,11 @@
 %	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	%THIRD PART
 	\cleardoublepage
-	\part{Deep Learning}
+	\part{Deep Learning}\label{part:deep_learning}
 	\input{../sections/neural_networks}
+	\input{../sections/convolutional_nn}
+	\input{../sections/gans}
+	\input{../sections/transformers}
 
 %	\input{section5}
 %	
@@ -125,9 +131,8 @@
 	%-------------------------------------------------------------------%
 	%-------------------------------------------------------------------%
 	
-	\DeclareFieldFormat{labelnumberwidth}{#1}
-	\printbibliography[keyword=alph, heading=references]
-	\DeclareFieldFormat{labelnumberwidth}{{#1\adddot\midsentence}}
-	\printbibliography[heading=references, notkeyword=alph]
-	
+%	\DeclareFieldFormat{labelnumberwidth}{#1}
+	\printbibliography
+%	\DeclareFieldFormat{labelnumberwidth}{{#1\adddot\midsentence}}
+	%\printbibliography[heading=references, notkeyword=alph]
 \end{document}	

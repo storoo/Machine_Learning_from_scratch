@@ -7,29 +7,52 @@
 %  Fonts & unicode input                                            %
 %-------------------------------------------------------------------%
 
-\setmainfont[Ligatures={Common}, ItalicFont={Minion Pro Italic}, BoldFont={Minion Pro Semibold}, BoldItalicFont={Minion Pro Semibold Italic}]{Minion Pro}
-\setmonofont[Scale=MatchLowercase]{Myriad Pro Light}
-\setmathfont[
-Path 			= C:/Windows/Fonts
-Extension		= .otf,
-Scale 			= 1,
-Script 			= Math,
-SizeFeatures 	= {
-	{Size = -6, Font = MinionMath-Tiny,
-		Style = MathScriptScript},
-	{Size = 6-8.4, Font = MinionMath-Capt,
-		Style = MathScript},
-	{Size = 8.4-13, Font = MinionMath-Regular,
-		Style = MathScript},
-	{Size = 13-19.9, Font = MinionMath-Subh,
-		Style = MathScript},
-	{Size = 19.9-72, Font = MinionMath-Disp},
-	{Size = 72-, Font = MinionMath-Disp,
-		Style = MathScript}}]{MinionMath-Regular}
+\setmainfont[
+	Path = C:/Windows/Fonts/,
+	Extension = .ttf,
+	Ligatures={TeX, Common}, 
+	UprightFont = MinionPro-Regular,
+	BoldFont={MinionPro-Bold},
+	ItalicFont={MinionPro-It}, 
+	BoldItalicFont={MinionPro-BoldIt},
+	SmallCapsFont = {MinionPro-Regular},
+	Scale = MatchUppercase,
+	Numbers = {Proportional, Lining},
+	Kerning = On,
+	]{MinionPro-Regular}
 	
-\setmathfont[range={\mathfrak, \mathcal}]{STIX Two Math}
-\newfontface\Swash{Minion Pro Italic}[Contextuals=Swash]
-\newfontfamily{\japanesefont}{Hiragino Sans GB W3}
+\setmonofont[Scale=MatchLowercase]{MyriadPro-Light}
+
+\setsansfont[
+	Path = C:/Windows/Fonts/,
+	Extension = .ttf,
+]{MyriadPro-Regular}
+
+%\setmathfont[
+%Path 			= C:/Windows/Fonts
+%Extension		= .otf,
+%Scale 			= 1,
+%Script 			= Math,
+%SizeFeatures 	= {
+%	{Size = -6, Font = MinionMath-Tiny,
+%		Style = MathScriptScript},
+%	{Size = 6-8.4, Font = MinionMath-Capt,
+%		Style = MathScript},
+%	{Size = 8.4-13, Font = MinionMath-Regular,
+%		Style = MathScript},
+%	{Size = 13-19.9, Font = MinionMath-Subh,
+%		Style = MathScript},
+%	{Size = 19.9-72, Font = MinionMath-Disp},
+%	{Size = 72-, Font = MinionMath-Disp,
+%		Style = MathScript}}]{MinionMath-Regular}
+	
+\setmathfont[
+	Scale = MatchLowercase
+]{STIX Two Math}
+
+%\newfontface\Swash{Minion Pro Italic}[Contextuals=Swash]
+
+\newfontfamily{\japanesefont}{Hiragino-Sans-GB-W3.otf}
 
 
 %-------------------------------------------------------------------%
