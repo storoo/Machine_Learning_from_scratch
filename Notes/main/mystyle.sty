@@ -18,24 +18,27 @@
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
 
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{etoolbox}
-\usepackage{todonotes}
-\usepackage{float}
-\usepackage{bm}
-\usepackage{csquotes} 
-\usepackage{bbm}
-\usepackage{imakeidx}
-\usepackage{xcolor}
-\usepackage{cancel}
-\usepackage{lipsum}
-\usepackage{authblk}
-\usepackage{marvosym}
-\usepackage{soul}
-\usepackage{siunitx}
-\usepackage{eurosym}
-\usepackage{pgfplots}
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+\RequirePackage{etoolbox}
+\RequirePackage{todonotes}
+\RequirePackage{float}
+\RequirePackage{bm}
+%\RequirePackage[utf8]{inputenc}
+%\RequirePackage{csquotes} 
+\RequirePackage{bbm}
+\RequirePackage{imakeidx}
+\RequirePackage{xcolor}
+\RequirePackage{cancel}
+\RequirePackage{lipsum}
+\RequirePackage{authblk}
+\RequirePackage{marvosym}
+\RequirePackage{soul}
+\RequirePackage{siunitx}
+\RequirePackage{eurosym}
+\RequirePackage{pgf}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18} 
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
 %  Colors                                                           %
@@ -67,7 +70,7 @@
 \definecolor{lobster}{RGB}{255, 64, 64}
 \definecolor{dutch}{RGB}{22, 147, 165}
 \definecolor{slate}{RGB}{42, 54, 59}
-
+\definecolor{bordeaux}{RGB}{128, 0, 0}
 
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
@@ -75,16 +78,21 @@
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
 
-\usepackage{url} % Allows for printing of URLs with TeX symbols that normally wouldn't be printed such as "~"
-\usepackage{hyperref}
+\RequirePackage{url} % Allows for printing of URLs with TeX symbols that normally wouldn't be printed such as "~"
+
+\RequirePackage{hyperref}
 \hypersetup{
-	colorlinks=true, %set true if you want colored links
-	linktoc=all,     %set to all if you want both sections and subsections linked
-	linkcolor=Blue,  %choose some color if you want links to stand out
-	citecolor = SkyBlue,
-	urlcolor = slate,
-	pdfencoding=unicode,
-	hypertexnames = true,
+	pdfencoding 		=	auto, unicode,
+	colorlinks			=	true,       % false: boxed links; true: colored links
+	linkcolor			=	Blue,          % color of internal links (change box color with linkbordercolor)
+	linkbordercolor		= 	red,
+	citecolor			=	bordeaux,        % color of links to bibliography
+	filecolor			=	cyan,         % color of file links
+	urlcolor			=	slate,        % color of external links
+	citebordercolor		=	{0 1 0},	%color of frame around citations
+	urlbordercolor		=	{0 1 1},
+	plainpages			=false,
+	bookmarksdepth=subsection
 }
 
 
@@ -95,7 +103,7 @@
 %-------------------------------------------------------------------%
 
 % Adds section numbers to PDF bookmarks
-\usepackage{bookmark}
+\RequirePackage{bookmark}
 \bookmarksetup{
 	numbered, 
 	open,
@@ -107,7 +115,7 @@
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
 
-\usepackage{citationscheme}
+\RequirePackage{citationscheme}
 
 %-------------------------------------------------------------------%
 %-------------------------------------------------------------------%
@@ -119,18 +127,16 @@
 %  Packages & basic commands                                        %
 %-------------------------------------------------------------------%
 
-\setcounter{secnumdepth}{2}
-
-\usepackage{amsthm}
+\RequirePackage{amsthm}
 
 % The placement of this package is IMPORTANT. (It may not work if it is placed in a different order with respect to other packages.)
-\usepackage[noabbrev,nameinlink,capitalize]{cleveref} 
+\RequirePackage[noabbrev,nameinlink,capitalize]{cleveref} 
 
 %-------------------------------------------------------------------%
 %  Enumerated lists                                                 %
 %-------------------------------------------------------------------%
 
-\usepackage[shortlabels]{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 \setlist[enumerate]{
 	itemsep  = 0.15cm,
 	label  = {\upshape (\arabic*)},
@@ -246,11 +252,11 @@
 	%-------------------------------------------------------------------%
 	
 	\if@minionmath
-	\usepackage{minionfonts}
+	\RequirePackage{minionfonts}
 	\fi
 	
 	\if@normal
-	\usepackage{normalfonts}
+	\RequirePackage{normalfonts}
 	\fi
 	
 	%-------------------------------------------------------------------%
@@ -259,11 +265,11 @@
 	%-------------------------------------------------------------------%
 	%-------------------------------------------------------------------%
 	
-	\usepackage{xspace}
+	\RequirePackage{xspace}
 	
 	\frenchspacing
 	
-	\usepackage[final,factor=1100,stretch=10,shrink=10]{microtype}
+	\RequirePackage[final,factor=1100,stretch=10,shrink=10]{microtype}
 	
 	\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
 	{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
@@ -285,8 +291,8 @@
 	%-------------------------------------------------------------------%
 	%-------------------------------------------------------------------%
 	
-	\usepackage{tikzarrows}
-	\usepackage{tikz-cd}
+	\RequirePackage{tikzarrows}
+	\RequirePackage{tikz-cd}
 	\makeatletter
 	\let\tikz@lib@matrix@start@cell=\tikz@lib@matrix@normal@start@cell
 	\makeatother
@@ -348,11 +354,11 @@
 	%-------------------------------------------------------------------%
 	
 	\if@minionmath
-	\usepackage[minionmath]{standard_macros}
+	\RequirePackage[minionmath]{standard_macros}
 	\fi
 	
 	\if@normal
-	\usepackage[normal]{standard_macros}
+	\RequirePackage[normal]{standard_macros}
 	\fi
 	
 	%-------------------------------------------------------------------%
