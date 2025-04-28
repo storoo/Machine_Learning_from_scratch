@@ -1,3 +1,21 @@
+@misc{baevskiData2vecGeneralFramework2022a,
+  title = {Data2vec: {{A General Framework}} for {{Self-supervised Learning}} in {{Speech}}, {{Vision}} and {{Language}}},
+  shorttitle = {Data2vec},
+  author = {Baevski, Alexei and Hsu, Wei-Ning and Xu, Qiantong and Babu, Arun and Gu, Jiatao and Auli, Michael},
+  year = {2022},
+  month = oct,
+  number = {arXiv:2202.03555},
+  eprint = {2202.03555},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2202.03555},
+  urldate = {2025-04-22},
+  abstract = {While the general idea of self-supervised learning is identical across modalities, the actual algorithms and objectives differ widely because they were developed with a single modality in mind. To get us closer to general self-supervised learning, we present data2vec, a framework that uses the same learning method for either speech, NLP or computer vision. The core idea is to predict latent representations of the full input data based on a masked view of the input in a self-distillation setup using a standard Transformer architecture. Instead of predicting modality-specific targets such as words, visual tokens or units of human speech which are local in nature, data2vec predicts contextualized latent representations that contain information from the entire input. Experiments on the major benchmarks of speech recognition, image classification, and natural language understanding demonstrate a new state of the art or competitive performance to predominant approaches.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\37SLKS8K\\Baevski et al. - 2022 - data2vec A General Framework for Self-supervised Learning in Speech, Vision and Language.pdf;C\:\\Users\\storo\\Zotero\\storage\\S4VRKAU8\\2202.html}
+}
+
 @misc{bahdanauNeuralMachineTranslation2016,
   title = {Neural {{Machine Translation}} by {{Jointly Learning}} to {{Align}} and {{Translate}}},
   author = {Bahdanau, Dzmitry and Cho, Kyunghyun and Bengio, Yoshua},
@@ -13,6 +31,91 @@
   archiveprefix = {arXiv},
   keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Statistics - Machine Learning},
   file = {C\:\\Users\\storo\\Zotero\\storage\\EBEXUMGP\\Bahdanau et al. - 2016 - Neural Machine Translation by Jointly Learning to Align and Translate.pdf;C\:\\Users\\storo\\Zotero\\storage\\F3YIPAVC\\1409.html}
+}
+
+@misc{desaiHyperbolicImageTextRepresentations2024,
+  title = {Hyperbolic {{Image-Text Representations}}},
+  author = {Desai, Karan and Nickel, Maximilian and Rajpurohit, Tanmay and Johnson, Justin and Vedantam, Ramakrishna},
+  year = {2024},
+  month = jan,
+  number = {arXiv:2304.09172},
+  eprint = {2304.09172},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2304.09172},
+  urldate = {2025-04-22},
+  abstract = {Visual and linguistic concepts naturally organize themselves in a hierarchy, where a textual concept "dog" entails all images that contain dogs. Despite being intuitive, current large-scale vision and language models such as CLIP do not explicitly capture such hierarchy. We propose MERU, a contrastive model that yields hyperbolic representations of images and text. Hyperbolic spaces have suitable geometric properties to embed tree-like data, so MERU can better capture the underlying hierarchy in image-text datasets. Our results show that MERU learns a highly interpretable and structured representation space while being competitive with CLIP's performance on standard multi-modal tasks like image classification and image-text retrieval. Our code and models are available at https://www.github.com/facebookresearch/meru},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\SRJB9U5W\\Desai et al. - 2024 - Hyperbolic Image-Text Representations.pdf;C\:\\Users\\storo\\Zotero\\storage\\MSFLYMPR\\2304.html}
+}
+
+@inproceedings{evainLeBenchmarkReproducibleFramework2021,
+  title = {{{LeBenchmark}}: {{A Reproducible Framework}} for {{Assessing Self-Supervised Representation Learning}} from {{Speech}}},
+  shorttitle = {{{LeBenchmark}}},
+  booktitle = {Interspeech 2021},
+  author = {Evain, Solene and Nguyen, Ha and Le, Hang and Boito, Marcely Zanon and Mdhaffar, Salima and Alisamir, Sina and Tong, Ziyi and Tomashenko, Natalia and Dinarelli, Marco and Parcollet, Titouan and Allauzen, Alexandre and Esteve, Yannick and Lecouteux, Benjamin and Portet, Francois and Rossato, Solange and Ringeval, Fabien and Schwab, Didier and Besacier, Laurent},
+  year = {2021},
+  month = aug,
+  eprint = {2104.11462},
+  primaryclass = {cs},
+  pages = {1439--1443},
+  doi = {10.21437/Interspeech.2021-556},
+  urldate = {2025-04-22},
+  abstract = {Self-Supervised Learning (SSL) using huge unlabeled data has been successfully explored for image and natural language processing. Recent works also investigated SSL from speech. They were notably successful to improve performance on downstream tasks such as automatic speech recognition (ASR). While these works suggest it is possible to reduce dependence on labeled data for building efficient speech systems, their evaluation was mostly made on ASR and using multiple and heterogeneous experimental settings (most of them for English). This questions the objective comparison of SSL approaches and the evaluation of their impact on building speech systems. In this paper, we propose LeBenchmark: a reproducible framework for assessing SSL from speech. It not only includes ASR (high and low resource) tasks but also spoken language understanding, speech translation and emotion recognition. We also focus on speech technologies in a language different than English: French. SSL models of different sizes are trained from carefully sourced and documented datasets. Experiments show that SSL is beneficial for most but not all tasks which confirms the need for exhaustive and reliable benchmarks to evaluate its real impact. LeBenchmark is shared with the scientific community for reproducible research in SSL from speech.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Sound,Electrical Engineering and Systems Science - Audio and Speech Processing},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\KEJNWXU3\\Evain et al. - 2021 - LeBenchmark A Reproducible Framework for Assessing Self-Supervised Representation Learning from Spe.pdf;C\:\\Users\\storo\\Zotero\\storage\\275TLBBL\\2104.html}
+}
+
+@misc{leFlauBERTUnsupervisedLanguage2020,
+  title = {{{FlauBERT}}: {{Unsupervised Language Model Pre-training}} for {{French}}},
+  shorttitle = {{{FlauBERT}}},
+  author = {Le, Hang and Vial, Lo{\"i}c and Frej, Jibril and Segonne, Vincent and Coavoux, Maximin and Lecouteux, Benjamin and Allauzen, Alexandre and Crabb{\'e}, Beno{\^i}t and Besacier, Laurent and Schwab, Didier},
+  year = {2020},
+  month = mar,
+  number = {arXiv:1912.05372},
+  eprint = {1912.05372},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1912.05372},
+  urldate = {2025-04-22},
+  abstract = {Language models have become a key step to achieve state-of-the art results in many different Natural Language Processing (NLP) tasks. Leveraging the huge amount of unlabeled texts nowadays available, they provide an efficient way to pre-train continuous word representations that can be fine-tuned for a downstream task, along with their contextualization at the sentence level. This has been widely demonstrated for English using contextualized representations (Dai and Le, 2015; Peters et al., 2018; Howard and Ruder, 2018; Radford et al., 2018; Devlin et al., 2019; Yang et al., 2019b). In this paper, we introduce and share FlauBERT, a model learned on a very large and heterogeneous French corpus. Models of different sizes are trained using the new CNRS (French National Centre for Scientific Research) Jean Zay supercomputer. We apply our French language models to diverse NLP tasks (text classification, paraphrasing, natural language inference, parsing, word sense disambiguation) and show that most of the time they outperform other pre-training approaches. Different versions of FlauBERT as well as a unified evaluation protocol for the downstream tasks, called FLUE (French Language Understanding Evaluation), are shared to the research community for further reproducible experiments in French NLP.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\XU7UGSCI\\Le et al. - 2020 - FlauBERT Unsupervised Language Model Pre-training for French.pdf;C\:\\Users\\storo\\Zotero\\storage\\A76PIHTV\\1912.html}
+}
+
+@misc{nickelPoincareEmbeddingsLearning2017a,
+  title = {Poincar{\'e} {{Embeddings}} for {{Learning Hierarchical Representations}}},
+  author = {Nickel, Maximilian and Kiela, Douwe},
+  year = {2017},
+  month = may,
+  number = {arXiv:1705.08039},
+  eprint = {1705.08039},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1705.08039},
+  urldate = {2025-04-22},
+  abstract = {Representation learning has become an invaluable approach for learning from symbolic data such as text and graphs. However, while complex symbolic datasets often exhibit a latent hierarchical structure, state-of-the-art methods typically learn embeddings in Euclidean vector spaces, which do not account for this property. For this purpose, we introduce a new approach for learning hierarchical representations of symbolic data by embedding them into hyperbolic space -- or more precisely into an n-dimensional Poincar{\textbackslash}'e ball. Due to the underlying hyperbolic geometry, this allows us to learn parsimonious representations of symbolic data by simultaneously capturing hierarchy and similarity. We introduce an efficient algorithm to learn the embeddings based on Riemannian optimization and show experimentally that Poincar{\textbackslash}'e embeddings outperform Euclidean embeddings significantly on data with latent hierarchies, both in terms of representation capacity and in terms of generalization ability.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\TUCFTB7A\\Nickel and Kiela - 2017 - Poincaré Embeddings for Learning Hierarchical Representations.pdf;C\:\\Users\\storo\\Zotero\\storage\\A5NHXIBY\\1705.html}
+}
+
+@article{tenenbaumGlobalGeometricFramework2000,
+  title = {A {{Global Geometric Framework}} for {{Nonlinear Dimensionality Reduction}}},
+  author = {Tenenbaum, Joshua B. and de Silva, Vin and Langford, John C.},
+  year = {2000},
+  month = dec,
+  journal = {Science},
+  volume = {290},
+  number = {5500},
+  pages = {2319--2323},
+  publisher = {American Association for the Advancement of Science},
+  doi = {10.1126/science.290.5500.2319},
+  urldate = {2025-04-22},
+  abstract = {Scientists working with large volumes of high-dimensional data, such as global climate patterns, stellar spectra, or human gene distributions, regularly confront the problem of dimensionality reduction: finding meaningful low-dimensional structures hidden in their high-dimensional observations. The human brain confronts the same problem in everyday perception, extracting from its high-dimensional sensory inputs---30,000 auditory nerve fibers or 106 optic nerve fibers---a manageably small number of perceptually relevant features. Here we describe an approach to solving dimensionality reduction problems that uses easily measured local metric information to learn the underlying global geometry of a data set. Unlike classical techniques such as principal component analysis (PCA) and multidimensional scaling (MDS), our approach is capable of discovering the nonlinear degrees of freedom that underlie complex natural observations, such as human handwriting or images of a face under different viewing conditions. In contrast to previous algorithms for nonlinear dimensionality reduction, ours efficiently computes a globally optimal solution, and, for an important class of data manifolds, is guaranteed to converge asymptotically to the true structure.}
 }
 
 @inproceedings{vaswaniAttentionAllYou2017,

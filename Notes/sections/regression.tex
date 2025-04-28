@@ -450,7 +450,7 @@ The LMS algorithm is a very powerful method to minimize the cost function $J(\ve
 
 Let us consider a linear model (of polynomial nature) of the form: 
 
-\begin{equation}\label{Eq.Sec.Lin.Reg.9}
+\begin{equation}\label{Eq.Sec.Lin.Reg.7}
 	y(x,\vec{w}) = \sum_{j=0}^{m}w_j\phi_j(x) = w_0 + w_1x + w_2x^2 + \cdots + w_m x^m 
 \end{equation}
 where $\phi_j(x)= x^j$. Notice that we are considering a single feature $x$ and in this case $m$ is no longer the number of features but the degree of the polynomial $y(x,\vec{w})$. Sometimes this kind of model is also refered as a model having polynomial features $x, x^2 ,x^3,...,x^m$. We will stick to the first terminology for simplicity. 
@@ -533,7 +533,7 @@ This section is dedicated to the implementation in python of the LMS algorithm v
 \subsubsection*{Cost function}
 Let us first implement a function that computes the cost function. Remember that the cost function is given by:	
 
-\begin{equation}\label{Eq.Sec.Lin.Reg.7}
+\begin{equation}\label{Eq.Sec.Lin.Reg.8}
 	J(\vec{w}) = \frac{1}{2}\sum_{i=1}^{N} (y^{(i)} - \vec{w}^T\phi(\vec{x}^{(i)}) )^2
 \end{equation}	
 We will assume that the basis functions $\phi_J$ are given by projections onto the $j$-th coordinate, \ie $\phi_j(\vec{x}) = x_j$. So that 
@@ -543,7 +543,7 @@ We will assume that the basis functions $\phi_J$ are given by projections onto t
 \end{bmatrix}^{T} \]
 In this case we can write the cost function as in \cref{Eq.Sec.Lin.Reg.1} as follows:
 
-\begin{equation}\label{Eq.Sec.Lin.Reg.8}
+\begin{equation}\label{Eq.Sec.Lin.Reg.9}
 	J(\vec{w}) = \frac{1}{2}\sum_{i=1}^{N} (y^{(i)} - \vec{w}^T \vec{x}^{(i)})^2
 \end{equation}
 where $\vec{x}_0^{(i)}=1$ for all $i=1,...,N$. The code to compute the cost function for a single training example $\vec{x}$ and target value $y$ is then given by: 

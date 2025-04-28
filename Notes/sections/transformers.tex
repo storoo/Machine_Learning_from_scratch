@@ -1,14 +1,147 @@
 \section{Transformers}\label{sec:transformers}
 
-\subsection{Natural language processing (NLP): word embeddings}\label{subsec:nlp_word_embeddings}
+\subsection{Natural language processing (NLP): Word Embeddings}\label{subsec:nlp_word_embeddings}
 
 
 \subsection{Attention mechanism}\label{subsec:attention_mechanism}
 
 The fundamental idea behind a transformer model is the \emph{attention} mechanism, which allows the model to focus on different parts of the input sequence when making predictions. This mechanism arose from the need to improve the performance of recurrent neural networks (RNNs) for machine translation tasks \cite{bahdanauNeuralMachineTranslation2016}. Later on, performance was improved considerably by eliminating the RNN architecture altogether and using a fully attention-based architecture, which is the basis of the transformer model \cite{vaswaniAttentionAllYou2017}. 
 
+Let us consider the following three sentences as an example:
+
+\begin{quote}
+    \textit{I need to \textbf{run} to catch the bus!}  \\
+    \textit{Paul decided to \textbf{run} for president.} \\
+    \textit{We had a \textbf{run} of bad luck.} 
+\end{quote}
+
+In each case, the word \textit{run} has a different meaning depending on the context. The attention mechanism allows the model to focus on the surrounding words to determine the meaning of \textit{run} in each case. For example, in the first sentence, the model can pay more attention to the words \textit{catch} and \textit{bus}, while in the second sentence, it can focus on \textit{Paul} and \textit{president}.
+
+\subsubsection{Processing}\label{subsubsec:processing}
+
+The input data to a transformer is a collection of vectors $\set{\vec{x}^{(i)}}$ in $\RR^m$ where ${i=1,...,N}$. As it is usual in these notes, each element of the $i$-th vector $\vec{x}^{(i)}_j$ is called a \emph{feature} and the data vectors are called \emph{tokens}. These tokens may correspond to words withing a corpus of text, to a patch of pixels within an image, or to any other type of data sensible to be represented (embedded) as a vector. We will associate a matrix $X \in \RR^{N \times m}$ to the collection of vectors $\set{\vec{x}^{(i)}}$ as follows: 
+
+\begin{equation}
+    X = \begin{bmatrix}
+       -- (\vec{x}^{(1)})^T -- \\
+       -- (\vec{x}^{(2)})^T -- \\
+        \vdots \\
+       -- (\vec{x}^{(N)})^T --
+    \end{bmatrix} 
+\end{equation}   
+
+The fundamental block of the Transformer will take the matrix $X$ as input and create a new matrix, $\widehat{X}$ of the same size: 
+
+$$
+\widetilde{X} = \textrm{TransformerLayer}(X)
+$$
+
+The idea is to create a new matrix $\widetilde{X}$ that contains the same information as $X$, but with the features of each token enhanced by the attention mechanism. We can of course stack (compose) several of these layers in sequence to create a deeper model capable of learning more complex relationships between the tokens. This single transformer layer has two stages: the one acting on columns (features) corresponding to the attention mechanism, and the one acting on rows (tokens) which corresponds to the effect of transforming the features within each token. 
 
 
+\subsubsection*{Attention}
+
+Let us denote by $\vec{y}^{(1)},...,\vec{y}^{(N)}$ the rows (tokens) of the matrix $\widetilde{X}$. Each of these tokens should live in an embedding space with a richer semantic structure than the tokens of $X$. Since each token in $X$ correspond to some data type (say words) and we want to capture some semantic relation between them, each vector $\vec{y}^{(i)}$ should depend on all the tokens from $X$, \ie, $\vec{x}^{(1)}, \vec{x}^{(2)},...,\vec{x}^{(N)}$. The simplest thing to do is to assume that each $\vec{y}^{(i)}$ depends linearly, or it is linear combination of the tokens in $X$: 
+
+\[ \vec{y}^{(i)} = \sum_{j=1}^N a_{ij} \vec{x}^{(j)} \]
+
+where $\alpha_{ij}$ are the coefficients of the linear combination. These coefficients will be called \emph{attention weights}. We expect these coefficients to be close to zero whenever the input tokens are not relevant to the output token. For instance, in our previous example: \emph{``I need to run to catch the bus''}, the attention weights for the output token associated with the word \textit{catch} should be high for the words \textit{catch}, \textit{to} (second), \textit{bus} and \textit{run} for we need to focus on the object of the action (the bus) and the preceding action (run) to understand the meaning of \textit{catch}. On the other hand, the attention weights should be low for the words \textit{I} and \textit{need} and the first \textit{to}.    
+
+In the following \stnote{add specific ref label to the table} table we present some linguistic intuition about how the weights should be distributed. The first column contains the words of the sentence, the second and third columns contain notation for the input and output tokens, respectively. The fourth column contains the words that should receive low attention weights, while the fifth column contains the words that should receive high attention weights.
+
+\begin{table}[htp] % h=here, t=top, b=bottom, p=page of floats
+    \centering{
+    %\caption{Intuitive Self-Attention Weights for "I need to run to catch the bus"}
+    \label{tab:attention_intuition}
+    \begin{tabular}{@{} l c c p{3.5cm} p{3.5cm} @{}} % Use @{} to remove padding at edges
+      \toprule % Nicer top line from booktabs
+      \textbf{Word} & \textbf{Input Token} & \textbf{Output Token} & \textbf{Low Attention}  & \textbf{High Attention}  \\
+      \midrule % Nicer middle line from booktabs
+  
+      I & $x^1$ & $y^1$ & the, bus, catch & I, need, run \\
+      \addlinespace % Add a bit of vertical space
+  
+      need & $x^2$ & $y^2$ & the, bus & need, I, to (first), run \\
+      \addlinespace
+  
+      to & $x^3$ & $y^3$ & the, bus, I, catch & to (first), need, run \\
+      \addlinespace
+  
+      run & $x^4$ & $y^4$ & I, need & run, to (first), to (second), catch, bus \\
+      \addlinespace
+  
+      to & $x^5$ & $y^5$ & I, need, to (first) & to (second), run, catch, bus \\
+      \addlinespace
+  
+      catch & $x^6$ & $y^6$ & I, need, to (first) & catch, to (second), run, the, bus \\
+      \addlinespace
+  
+      the & $x^7$ & $y^7$ & I, need, to (first), run & the, bus, catch \\
+      \addlinespace
+  
+      bus & $x^8$ & $y^8$ & I, need & bus, the, catch, run \\
+  
+      \bottomrule % Nicer bottom line from booktabs
+    \end{tabular}}
+\end{table}
+
+We will then impose the following constraints on the attention weights:
+
+\begin{itemize}
+    \item The attention weights are non-negative: $a_{ij} \geq 0$, as we want to avoid situations in which one coefficient can become large and positive while another one compensated by being large and negative. This is not desirable in our case, as we want to focus on the most relevant tokens.
+    \item The attention weights sum to one: $\sum_{j=1}^N a_{ij} = 1$. This is a normalization condition that ensures that if an output token pays more attention to one input token, it pays less attention to the others. 
+\end{itemize}
+
+\begin{remark}
+    Notice that if we assume that the outputs are instead linear combinations of basis functions of the input tokens $\phi_1,...,\phi_N : \RR^m \to \RR$, the two conditions above ensure that the basis functions form a partition of unity. 
+    \stnote{Maybe we have to add some more details here. So far it is not that important, just intuition we get from this}
+\end{remark}
 
 
-\subsection{Transformer models}\label{subsec:transformer_models}
+\subsubsection*{Self-attention}
+    Let us discuss how to determine the attention weights $a_{ij}$. The idea first is to use an approach similar to the one used in problems related with information retrieval. The following image shows the basic idea used to find the attention weights: 
+
+    \stnoteil{add image here}
+
+
+    The main idea is to see each of the input vectors $\vec{x}^{(i)}$ as a \textsc{value} vector that will be used to create the output tokens. We will also use $\vec{x}^{(i)}$ as the \textsc{key} vector for the $i$th input token. Finally  we consider each $\vec{x}^{(j)}$ as \textsc{query} vector for the output $\vec{y}^{(j)}$. To achieve the constraints on the attention weights, we will use a softmax function (with no probabilistic interpretation) so that: 
+
+    \[
+    a_{ij} = \frac{\exp((\vec{x}^{(i)})^{ T} \cdot \vec{x}^{(j)})}{\sum_{k=1}^N \exp((\vec{x}^{(i)})^{T} \cdot \vec{x}^{(k)})}
+    \]
+    By grouping all the output tokens in a single $N \times m$ matrix $Y$ we obtain a nice matrix formula for the output tokens: 
+    \begin{equation}\label{Eq.subsec.self_attention.1}
+        Y = \textrm{Softmax}(X X^\top) X 
+    \end{equation}
+    where the softmax function applied on a $N\times N$ matrix $C = [c_{ij}]$ is a new matrix whose entries given by:
+    \[ \textrm{Softmax}(C)_{ij} = \frac{\exp(c_{ij})}{\sum_{k=1}^N \exp(c_{ik})} \] 
+    This process is called \emph{self-attention} because the same input tokens are used as queries, keys and values. The attention weights are computed by taking the dot product of the query vector with the key vectors, and then applying the softmax function. We will see some variations of this later on.
+    
+    \subsubsection*{Network parameters}
+    So far, the transformation we have described to find the output tokens is fixed in the sense that there are no adjustable parameters and therefore this has no learning capacity from data. We would like to build a network that has some flexibility to choose features to focus on when determining the output tokens. For this, we can start by defining modified feature vectors via a linear transformation to the input tokens through a matrix $U$ of learnable parameters:
+
+    \[ \widehat{X} = X U \]
+    where $U$ is an $m \times m$ matrix of learnable weight parameters. Notice that this is analogous to a linear layer in a neural network. By replacing $X$ by $\widehat{X}$ in \eqref{Eq.subsec.self_attention.1} we obtain the following expression for the output tokens:
+
+    \begin{align}\label{Eq.subsec.self_attention.2}
+        Y &= \textrm{Softmax}(\widehat{X} \widehat{X}^\top) \widehat{X} \nonumber \\
+        &= \textrm{Softmax}(X U U^\top X^\top) X U 
+    \end{align}
+
+    \begin{remark}
+        This approach has one remarkable characteristic. The matrix $\widehat{X}\widehat{X}^\top$ is symmetric which will in turn imply a symmetric behavior in the attention mechanism. We need much more flexibility, for instance, many tasks in NLP require tokens (words) to be strongly associated with other tokens but not in the opposite sense: The word \textit{hardware} is strongly associated with the word \textit{computer} but the latter may be associated with many other words and its association with the word \textit{hardware} may not be that strong. 
+    \end{remark}
+
+    To overcome this limitation we still use the same idea but with independent learnable weight matrices for the query, key and value vectors. We will denote these matrices by $W_q$, $W_k$ and $W_v$ respectively. We then consider: 
+
+    \begin{align*}
+        Q &= X W_q  &&\dim W_q = m\times m_k \\ 
+        K &= X W_k  &&\dim W_k = m\times m_k \\
+        V &= X W_v &&\dim W_v = m\times m_v
+    \end{align*}
+    where $m_k$ and $m_v$ are the dimensions of the key and value vectors respectively. The dimensions are chosen so that we can perform dot products between the query and key vectors (a typycal choice is to take $m_k= m$). Additionally, $m_v$ will govern the dimension of the output tokens. Finally we obtain an expression for the output tokens as follows:
+    \begin{equation}\label{Eq.subsec.self_attention.3}
+        Y = \textrm{Softmax}(Q K^\top) V 
+    \end{equation}
+    
+    \subsection{Transformer models}\label{subsec:transformer_models}
