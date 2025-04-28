@@ -130,9 +130,10 @@
 	%  References                                                       %
 	%-------------------------------------------------------------------%
 	%-------------------------------------------------------------------%
-	\cleardoublepage
-%	\DeclareFieldFormat{labelnumberwidth}{#1}
-	\printbibliography
-%	\DeclareFieldFormat{labelnumberwidth}{{#1\adddot\midsentence}}
-	%\printbibliography[heading=references, notkeyword=alph]
+	
+	\DeclareFieldFormat{labelnumberwidth}{#1}
+	\printbibliography[keyword=alph, heading=references]
+	\DeclareFieldFormat{labelnumberwidth}{{#1\adddot\midsentence}}
+	\printbibliography[heading=references, notkeyword=alph]
+	
 \end{document}	
