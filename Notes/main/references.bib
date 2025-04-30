@@ -1,32 +1,3 @@
-@misc{bahdanauNeuralMachineTranslation2016,
-  title = {Neural {{Machine Translation}} by {{Jointly Learning}} to {{Align}} and {{Translate}}},
-  author = {Bahdanau, Dzmitry and Cho, Kyunghyun and Bengio, Yoshua},
-  year = {2016},
-  month = may,
-  number = {arXiv:1409.0473},
-  eprint = {1409.0473},
-  primaryclass = {cs},
-  publisher = {arXiv},
-  doi = {10.48550/arXiv.1409.0473},
-  urldate = {2025-04-20},
-  abstract = {Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.},
-  archiveprefix = {arXiv},
-  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Statistics - Machine Learning},
-  file = {C\:\\Users\\storo\\Zotero\\storage\\EBEXUMGP\\Bahdanau et al. - 2016 - Neural Machine Translation by Jointly Learning to Align and Translate.pdf;C\:\\Users\\storo\\Zotero\\storage\\F3YIPAVC\\1409.html}
-}
-
-@inproceedings{vaswaniAttentionAllYou2017,
-  title = {Attention Is {{All}} You {{Need}}},
-  booktitle = {Advances in {{Neural Information Processing Systems}}},
-  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and ukasz Kaiser, {\L} and Polosukhin, Illia},
-  year = {2017},
-  volume = {30},
-  publisher = {Curran Associates, Inc.},
-  urldate = {2025-04-19},
-  abstract = {The dominant sequence transduction models are based on complex recurrent orconvolutional neural networks in an encoder and decoder configuration. The best performing such models also connect the encoder and decoder through an attentionm echanisms.  We propose a novel, simple network architecture based solely onan attention mechanism, dispensing with recurrence and convolutions entirely.Experiments on two machine translation tasks show these models to be superiorin quality while being more parallelizable and requiring significantly less timeto train. Our single model with 165 million parameters, achieves 27.5 BLEU onEnglish-to-German translation, improving over the existing best ensemble result by over 1 BLEU. On English-to-French translation, we outperform the previoussingle state-of-the-art with model by 0.7 BLEU, achieving a BLEU score of 41.1.},
-  file = {C:\Users\storo\Zotero\storage\NB28868L\Vaswani et al. - 2017 - Attention is All you Need.pdf}
-}
-
 @misc{baevskiData2vecGeneralFramework2022a,
   title = {Data2vec: {{A General Framework}} for {{Self-supervised Learning}} in {{Speech}}, {{Vision}} and {{Language}}},
   shorttitle = {Data2vec},
@@ -62,6 +33,50 @@
   file = {C\:\\Users\\storo\\Zotero\\storage\\EBEXUMGP\\Bahdanau et al. - 2016 - Neural Machine Translation by Jointly Learning to Align and Translate.pdf;C\:\\Users\\storo\\Zotero\\storage\\F3YIPAVC\\1409.html}
 }
 
+@article{bonnabelStochasticGradientDescent2013,
+  title = {Stochastic {{Gradient Descent}} on {{Riemannian Manifolds}}},
+  author = {Bonnabel, Silv{\`e}re},
+  year = {2013},
+  month = sep,
+  journal = {IEEE Transactions on Automatic Control},
+  volume = {58},
+  number = {9},
+  pages = {2217--2229},
+  issn = {1558-2523},
+  doi = {10.1109/TAC.2013.2254619},
+  urldate = {2025-04-29},
+  abstract = {Stochastic gradient descent is a simple approach to find the local minima of a cost function whose evaluations are corrupted by noise. In this paper, we develop a procedure extending stochastic gradient descent algorithms to the case where the function is defined on a Riemannian manifold. We prove that, as in the Euclidian case, the gradient descent algorithm converges to a critical point of the cost function. The algorithm has numerous potential applications, and is illustrated here by four examples. In particular a novel gossip algorithm on the set of covariance matrices is derived and tested numerically.},
+  keywords = {Approximation methods,Convergence,Cost function,Covariance matrices,Manifolds,Nonlinear identification,Riemannian geometry,Standards,stochastic approximation,Trajectory},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\GE3I8EEA\\Bonnabel - 2013 - Stochastic Gradient Descent on Riemannian Manifolds.pdf;C\:\\Users\\storo\\Zotero\\storage\\DK9MCVJ5\\6487381.html}
+}
+
+@misc{collobertNaturalLanguageProcessing2011,
+  title = {Natural {{Language Processing}} (Almost) from {{Scratch}}},
+  author = {Collobert, Ronan and Weston, Jason and Bottou, Leon and Karlen, Michael and Kavukcuoglu, Koray and Kuksa, Pavel},
+  year = {2011},
+  month = mar,
+  number = {arXiv:1103.0398},
+  eprint = {1103.0398},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1103.0398},
+  urldate = {2025-04-29},
+  abstract = {We propose a unified neural network architecture and learning algorithm that can be applied to various natural language processing tasks including: part-of-speech tagging, chunking, named entity recognition, and semantic role labeling. This versatility is achieved by trying to avoid task-specific engineering and therefore disregarding a lot of prior knowledge. Instead of exploiting man-made input features carefully optimized for each task, our system learns internal representations on the basis of vast amounts of mostly unlabeled training data. This work is then used as a basis for building a freely available tagging system with good performance and minimal computational requirements.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\KDTDKP6R\\Collobert et al. - 2011 - Natural Language Processing (almost) from Scratch.pdf;C\:\\Users\\storo\\Zotero\\storage\\HGIWDVL5\\1103.html}
+}
+
+@misc{ConstructionDevaluationGrands,
+  title = {{Construction et d'{\'e}valuation de grands mod{\`e}les de langue multimodaux et inclusifs ({\'e}crit, oral, pictogrammes) pour le fran{\c c}ais g{\'e}n{\'e}ral et clinique}},
+  journal = {Agence nationale de la recherche},
+  urldate = {2025-04-29},
+  abstract = {Le projet Pantagruel est une initiative ambitieuse qui vise {\`a} d{\'e}velopper et {\`a} {\'e}valuer des mod{\`e}les linguistiques multimodaux ({\'e}crit, oral, pictogrammes) et inclusifs pour le fran{\c c}ais. Le projet s'appuie sur l'expertise de chercheurs de diff{\'e}rentes disciplines, notamment l'informatique, le traitement du signal, la sociologie et la linguistique, afin de garantir la diversit{\'e} des perspectives ainsi que la fiabilit{\'e} et la pertinence des r{\'e}sultats. Les principales contributions du projet sont le d{\'e}veloppement de mod{\`e}les autosupervis{\'e}s librement accessibles pour le fran{\c c}ais, comprenant une {\`a} trois des modalit{\'e}s pour les domaines g{\'e}n{\'e}raux et cliniques. Le projet ne se contentera pas de produire des mod{\`e}les mais il concevra {\'e}galement des bancs d'essais permettant d'{\'e}valuer la g{\'e}n{\'e}ralisation de ce type de mod{\`e}les en s'appuyant sur l'exp{\'e}rience gagn{\'e}e lors des projets FlauBERT et LeBenchmark. Une part du projet sera consacr{\'e}e aux biais et st{\'e}r{\'e}otypes v{\'e}hicul{\'e}s dans les corpus d'entra{\^i}nement et dans les mod{\`e}les en aval. Une r{\'e}flexion sera men{\'e}e avec un comit{\'e} {\'e}thique, pour limiter un effet amplificateur de biais au sein des corpus d'entra{\^i}nement, en particulier en travaillant sur les caract{\'e}ristiques d{\'e}mographiques des locuteurices (pour l'oral audio ou retranscrit) et des auteurices (pour une partie des donn{\'e}es {\'e}crites). Nous pourrons ainsi comparer les mod{\`e}les appris sur des corpus d'entra{\^i}nement aux proportions variables pour ces caract{\'e}ristiques, comme par exemple le genre. Cette {\'e}tude permettra de quantifier dans quelle mesure les pr{\'e}dictions des mod{\`e}les de langue sont des reflets fiables des corpus en amont, et de mieux contr{\^o}ler la fa{\c c}on par laquelle ils peuvent {\^e}tre utilis{\'e}s comme outils de recherche pour les sciences sociales. Le projet d{\'e}veloppera des composants logiciels qui faciliteront l'int{\'e}gration des mod{\`e}les de langage dans diverses applications et permettront le d{\'e}veloppement de solutions innovantes exploitant la puissance des mod{\`e}les de langues du fran{\c c}ais multimodaux. Ces outils sont en particulier destin{\'e}s aux non-informaticiens tels que ceux membres du consortium (sociologues, linguistes, m{\'e}decins,  orthophonistes), des chercheurs d'autres domaines ou des artistes. Le projet Pantagruel a ainsi le potentiel de faire progresser de mani{\`e}re significative l'{\'e}tat de l'art en mati{\`e}re de mod{\`e}les de langues multimodaux et d'avoir un impact positif sur un large {\'e}ventail de domaines appliqu{\'e}s, des soins de sant{\'e} aux arts en passant par les sciences humaines et sociales.},
+  howpublished = {https://anr.fr/Projet-ANR-23-IAS1-0001},
+  langid = {french},
+  file = {C:\Users\storo\Zotero\storage\83XLY6Y7\Projet-ANR-23-IAS1-0001.html}
+}
+
 @misc{desaiHyperbolicImageTextRepresentations2024,
   title = {Hyperbolic {{Image-Text Representations}}},
   author = {Desai, Karan and Nickel, Maximilian and Rajpurohit, Tanmay and Johnson, Justin and Vedantam, Ramakrishna},
@@ -77,6 +92,41 @@
   archiveprefix = {arXiv},
   keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
   file = {C\:\\Users\\storo\\Zotero\\storage\\SRJB9U5W\\Desai et al. - 2024 - Hyperbolic Image-Text Representations.pdf;C\:\\Users\\storo\\Zotero\\storage\\MSFLYMPR\\2304.html}
+}
+
+@misc{devlinBERTPretrainingDeep2019,
+  title = {{{BERT}}: {{Pre-training}} of {{Deep Bidirectional Transformers}} for {{Language Understanding}}},
+  shorttitle = {{{BERT}}},
+  author = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  year = {2019},
+  month = may,
+  number = {arXiv:1810.04805},
+  eprint = {1810.04805},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1810.04805},
+  urldate = {2025-04-29},
+  abstract = {We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5\% (7.7\% point absolute improvement), MultiNLI accuracy to 86.7\% (4.6\% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\VFQGV3Y4\\Devlin et al. - 2019 - BERT Pre-training of Deep Bidirectional Transformers for Language Understanding.pdf;C\:\\Users\\storo\\Zotero\\storage\\IPNBY3WE\\1810.html}
+}
+
+@misc{dhingraEmbeddingTextHyperbolic2018,
+  title = {Embedding {{Text}} in {{Hyperbolic Spaces}}},
+  author = {Dhingra, Bhuwan and Shallue, Christopher J. and Norouzi, Mohammad and Dai, Andrew M. and Dahl, George E.},
+  year = {2018},
+  month = jun,
+  number = {arXiv:1806.04313},
+  eprint = {1806.04313},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1806.04313},
+  urldate = {2025-04-29},
+  abstract = {Natural language text exhibits hierarchical structure in a variety of respects. Ideally, we could incorporate our prior knowledge of this hierarchical structure into unsupervised learning algorithms that work on text data. Recent work by Nickel \& Kiela (2017) proposed using hyperbolic instead of Euclidean embedding spaces to represent hierarchical data and demonstrated encouraging results when embedding graphs. In this work, we extend their method with a re-parameterization technique that allows us to learn hyperbolic embeddings of arbitrarily parameterized objects. We apply this framework to learn word and sentence embeddings in hyperbolic space in an unsupervised manner from text corpora. The resulting embeddings seem to encode certain intuitive notions of hierarchy, such as word-context frequency and phrase constituency. However, the implicit continuous hierarchy in the learned hyperbolic space makes interrogating the model's learned hierarchies more difficult than for models that learn explicit edges between items. The learned hyperbolic embeddings show improvements over Euclidean embeddings in some -- but not all -- downstream tasks, suggesting that hierarchical organization is more useful for some tasks than others.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\DJ3QWBQ7\\Dhingra et al. - 2018 - Embedding Text in Hyperbolic Spaces.pdf;C\:\\Users\\storo\\Zotero\\storage\\277HE5RR\\1806.html}
 }
 
 @inproceedings{evainLeBenchmarkReproducibleFramework2021,
@@ -97,6 +147,24 @@
   file = {C\:\\Users\\storo\\Zotero\\storage\\KEJNWXU3\\Evain et al. - 2021 - LeBenchmark A Reproducible Framework for Assessing Self-Supervised Representation Learning from Spe.pdf;C\:\\Users\\storo\\Zotero\\storage\\275TLBBL\\2104.html}
 }
 
+@misc{fein-ashleyHVTComprehensiveVision2024,
+  title = {{{HVT}}: {{A Comprehensive Vision Framework}} for {{Learning}} in {{Non-Euclidean Space}}},
+  shorttitle = {{{HVT}}},
+  author = {{Fein-Ashley}, Jacob and Feng, Ethan and Pham, Minh},
+  year = {2024},
+  month = sep,
+  number = {arXiv:2409.16897},
+  eprint = {2409.16897},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2409.16897},
+  urldate = {2025-04-29},
+  abstract = {Data representation in non-Euclidean spaces has proven effective for capturing hierarchical and complex relationships in real-world datasets. Hyperbolic spaces, in particular, provide efficient embeddings for hierarchical structures. This paper introduces the Hyperbolic Vision Transformer (HVT), a novel extension of the Vision Transformer (ViT) that integrates hyperbolic geometry. While traditional ViTs operate in Euclidean space, our method enhances the self-attention mechanism by leveraging hyperbolic distance and M{\textbackslash}"obius transformations. This enables more effective modeling of hierarchical and relational dependencies in image data. We present rigorous mathematical formulations, showing how hyperbolic geometry can be incorporated into attention layers, feed-forward networks, and optimization. We offer improved performance for image classification using the ImageNet dataset.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {C:\Users\storo\Zotero\storage\ZZ9RIHI8\Fein-Ashley et al. - 2024 - HVT A Comprehensive Vision Framework for Learning in Non-Euclidean Space.pdf}
+}
+
 @misc{leFlauBERTUnsupervisedLanguage2020,
   title = {{{FlauBERT}}: {{Unsupervised Language Model Pre-training}} for {{French}}},
   shorttitle = {{{FlauBERT}}},
@@ -115,7 +183,43 @@
   file = {C\:\\Users\\storo\\Zotero\\storage\\XU7UGSCI\\Le et al. - 2020 - FlauBERT Unsupervised Language Model Pre-training for French.pdf;C\:\\Users\\storo\\Zotero\\storage\\A76PIHTV\\1912.html}
 }
 
-@misc{nickelPoincareEmbeddingsLearning2017a,
+@misc{mettesHyperbolicDeepLearning2023,
+  title = {Hyperbolic {{Deep Learning}} in {{Computer Vision}}: {{A Survey}}},
+  shorttitle = {Hyperbolic {{Deep Learning}} in {{Computer Vision}}},
+  author = {Mettes, Pascal and Atigh, Mina Ghadimi and {Keller-Ressel}, Martin and Gu, Jeffrey and Yeung, Serena},
+  year = {2023},
+  month = may,
+  number = {arXiv:2305.06611},
+  eprint = {2305.06611},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2305.06611},
+  urldate = {2025-04-29},
+  abstract = {Deep representation learning is a ubiquitous part of modern computer vision. While Euclidean space has been the de facto standard manifold for learning visual representations, hyperbolic space has recently gained rapid traction for learning in computer vision. Specifically, hyperbolic learning has shown a strong potential to embed hierarchical structures, learn from limited samples, quantify uncertainty, add robustness, limit error severity, and more. In this paper, we provide a categorization and in-depth overview of current literature on hyperbolic learning for computer vision. We research both supervised and unsupervised literature and identify three main research themes in each direction. We outline how hyperbolic learning is performed in all themes and discuss the main research problems that benefit from current advances in hyperbolic learning for computer vision. Moreover, we provide a high-level intuition behind hyperbolic geometry and outline open research questions to further advance research in this direction.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\XVWLWWGG\\Mettes et al. - 2023 - Hyperbolic Deep Learning in Computer Vision A Survey.pdf;C\:\\Users\\storo\\Zotero\\storage\\A8MD5XVC\\2305.html}
+}
+
+@misc{moreiraHyperbolicVsEuclidean2023,
+  title = {Hyperbolic vs {{Euclidean Embeddings}} in {{Few-Shot Learning}}: {{Two Sides}} of the {{Same Coin}}},
+  shorttitle = {Hyperbolic vs {{Euclidean Embeddings}} in {{Few-Shot Learning}}},
+  author = {Moreira, Gabriel and Marques, Manuel and Costeira, Jo{\~a}o Paulo and Hauptmann, Alexander},
+  year = {2023},
+  month = sep,
+  number = {arXiv:2309.10013},
+  eprint = {2309.10013},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2309.10013},
+  urldate = {2025-04-29},
+  abstract = {Recent research in representation learning has shown that hierarchical data lends itself to low-dimensional and highly informative representations in hyperbolic space. However, even if hyperbolic embeddings have gathered attention in image recognition, their optimization is prone to numerical hurdles. Further, it remains unclear which applications stand to benefit the most from the implicit bias imposed by hyperbolicity, when compared to traditional Euclidean features. In this paper, we focus on prototypical hyperbolic neural networks. In particular, the tendency of hyperbolic embeddings to converge to the boundary of the Poincar{\textbackslash}'e ball in high dimensions and the effect this has on few-shot classification. We show that the best few-shot results are attained for hyperbolic embeddings at a common hyperbolic radius. In contrast to prior benchmark results, we demonstrate that better performance can be achieved by a fixed-radius encoder equipped with the Euclidean metric, regardless of the embedding dimension.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\4P2GBAIN\\Moreira et al. - 2023 - Hyperbolic vs Euclidean Embeddings in Few-Shot Learning Two Sides of the Same Coin.pdf;C\:\\Users\\storo\\Zotero\\storage\\K6S7AI3Y\\2309.html}
+}
+
+@misc{nickelPoincareEmbeddingsLearning2017,
   title = {Poincar{\'e} {{Embeddings}} for {{Learning Hierarchical Representations}}},
   author = {Nickel, Maximilian and Kiela, Douwe},
   year = {2017},
@@ -130,6 +234,56 @@
   archiveprefix = {arXiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning},
   file = {C\:\\Users\\storo\\Zotero\\storage\\TUCFTB7A\\Nickel and Kiela - 2017 - Poincaré Embeddings for Learning Hierarchical Representations.pdf;C\:\\Users\\storo\\Zotero\\storage\\A5NHXIBY\\1705.html}
+}
+
+@misc{saRepresentationTradeoffsHyperbolic2018,
+  title = {Representation {{Tradeoffs}} for {{Hyperbolic Embeddings}}},
+  author = {Sa, Christopher De and Gu, Albert and R{\'e}, Christopher and Sala, Frederic},
+  year = {2018},
+  month = apr,
+  number = {arXiv:1804.03329},
+  eprint = {1804.03329},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1804.03329},
+  urldate = {2025-04-29},
+  abstract = {Hyperbolic embeddings offer excellent quality with few dimensions when embedding hierarchical data structures like synonym or type hierarchies. Given a tree, we give a combinatorial construction that embeds the tree in hyperbolic space with arbitrarily low distortion without using optimization. On WordNet, our combinatorial embedding obtains a mean-average-precision of 0.989 with only two dimensions, while Nickel et al.'s recent construction obtains 0.87 using 200 dimensions. We provide upper and lower bounds that allow us to characterize the precision-dimensionality tradeoff inherent in any hyperbolic embedding. To embed general metric spaces, we propose a hyperbolic generalization of multidimensional scaling (h-MDS). We show how to perform exact recovery of hyperbolic points from distances, provide a perturbation analysis, and give a recovery result that allows us to reduce dimensionality. The h-MDS approach offers consistently low distortion even with few dimensions across several datasets. Finally, we extract lessons from the algorithms and theory above to design a PyTorch-based implementation that can handle incomplete information and is scalable.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\UPUWHBEP\\Sa et al. - 2018 - Representation Tradeoffs for Hyperbolic Embeddings.pdf;C\:\\Users\\storo\\Zotero\\storage\\U5K63WQ5\\1804.html}
+}
+
+@inproceedings{segonneJargonSuiteModeles2024,
+  title = {{Jargon : Une suite de mod{\`e}les de langues et de r{\'e}f{\'e}rentiels d'{\'e}valuation pour les domaines sp{\'e}cialis{\'e}s du fran{\c c}ais}},
+  shorttitle = {{Jargon}},
+  booktitle = {{31{\`e}me Conf{\'e}rence sur le Traitement Automatique des Langues Naturelles (TALN 2024)}},
+  author = {Segonne, Vincent and Mannion, Aidan and {Alonzo-Canul}, Laura and Audibert, Alexandre and Liu, Xingyu and Macaire, C{\'e}cile and Pupier, Adrien and Zhou, Yongxin and Aguiar, Mathilde and Herron, Felix and Norr{\'e}, Magali and Amini, Massih-Reza and Bouillon, Pierrette and {Eshkol-Taravela}, Iris and {Esparan{\c c}a-Rodier}, Emmanuelle and Fran{\c c}ois, Thomas and Goeuriot, Lorraine and Goulian, J{\'e}r{\^o}me and Lafourcade, Mathieu and Lecouteux, Benjamin and Portet, Fran{\c c}ois and Ringeval, Fabien and Vandeghinste, Vincent and Coavoux, Maximin and Dinarelli, Marco and Schwab, Didier},
+  year = {2024},
+  month = jul,
+  volume = {2 : traductions d'articles publi{\'e}s},
+  pages = {9},
+  publisher = {ATALA \& AFPC},
+  urldate = {2025-04-29},
+  abstract = {Les mod{\`e}les de langue pr{\'e}entra{\^i}n{\'e}s (PLM) constituent aujourd'hui de facto l'{\'e}pine dorsale de la plupart des syst{\`e}mes de traitement automatique des langues. Dans cet article, nous pr{\'e}sentons Jargon, une famille de PLMs pour des domaines sp{\'e}cialis{\'e}s du fran{\c c}ais, en nous focalisant sur trois domaines : la parole transcrite, le domaine clinique / biom{\'e}dical, et le domaine juridique. Nous utilisons une architecture de transformeur bas{\'e}e sur des m{\'e}thodes computationnellement efficaces(LinFormer) puisque ces domaines impliquent souvent le traitement de longs documents. Nous {\'e}valuons et comparons nos mod{\`e}les {\`a} des mod{\`e}les de l'{\'e}tat de l'art sur un ensemble vari{\'e} de t{\^a}ches et de corpus d'{\'e}valuation, dont certains sont introduits dans notre article. Nous rassemblons les jeux de donn{\'e}es dans un nouveau r{\'e}f{\'e}rentiel d'{\'e}valuation en langue fran{\c c}aise pour ces trois domaines. Nous comparons {\'e}galement diverses configurations d'entra{\^i}nement : pr{\'e}entra{\^i}nement prolong{\'e} en apprentissage autosupervis{\'e} sur les donn{\'e}es sp{\'e}cialis{\'e}es, pr{\'e}entra{\^i}nement {\`a} partir de z{\'e}ro, ainsi que pr{\'e}entra{\^i}nement mono et multi-domaines. Nos exp{\'e}rimentations approfondies dans des domaines sp{\'e}cialis{\'e}s montrent qu'il est possible d'atteindre des performances comp{\'e}titives en aval, m{\^e}me lors d'un pr{\'e}entra{\^i}nement avec le m{\'e}canisme d'attention approximatif de LinFormer. Pour une reproductibilit{\'e} totale, nous publions les mod{\`e}les et les donn{\'e}es de pr{\'e}entra{\^i}nement, ainsi que les corpus utilis{\'e}s.},
+  langid = {french},
+  file = {C:\Users\storo\Zotero\storage\PS8MMYNK\Segonne et al. - 2024 - Jargon  Une suite de modèles de langues et de référentiels d'évaluation pour les domaines spécialis.pdf}
+}
+
+@misc{sinhaLearningStructuredRepresentations2024,
+  title = {Learning {{Structured Representations}} with {{Hyperbolic Embeddings}}},
+  author = {Sinha, Aditya and Zeng, Siqi and Yamada, Makoto and Zhao, Han},
+  year = {2024},
+  month = dec,
+  number = {arXiv:2412.01023},
+  eprint = {2412.01023},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2412.01023},
+  urldate = {2025-04-29},
+  abstract = {Most real-world datasets consist of a natural hierarchy between classes or an inherent label structure that is either already available or can be constructed cheaply. However, most existing representation learning methods ignore this hierarchy, treating labels as permutation invariant. Recent work [Zeng et al., 2022] proposes using this structured information explicitly, but the use of Euclidean distance may distort the underlying semantic context [Chen et al., 2013]. In this work, motivated by the advantage of hyperbolic spaces in modeling hierarchical relationships, we propose a novel approach HypStructure: a Hyperbolic Structured regularization approach to accurately embed the label hierarchy into the learned representations. HypStructure is a simple-yet-effective regularizer that consists of a hyperbolic tree-based representation loss along with a centering loss, and can be combined with any standard task loss to learn hierarchy-informed features. Extensive experiments on several large-scale vision benchmarks demonstrate the efficacy of HypStructure in reducing distortion and boosting generalization performance especially under low dimensional scenarios. For a better understanding of structured representation, we perform eigenvalue analysis that links the representation geometry to improved Out-of-Distribution (OOD) detection performance seen empirically. The code is available at {\textbackslash}url\{https://github.com/uiuctml/HypStructure\}.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\329NJHZD\\Sinha et al. - 2024 - Learning Structured Representations with Hyperbolic Embeddings.pdf;C\:\\Users\\storo\\Zotero\\storage\\CDKFB33U\\2412.html}
 }
 
 @article{tenenbaumGlobalGeometricFramework2000,
@@ -157,4 +311,39 @@
   urldate = {2025-04-19},
   abstract = {The dominant sequence transduction models are based on complex recurrent orconvolutional neural networks in an encoder and decoder configuration. The best performing such models also connect the encoder and decoder through an attentionm echanisms.  We propose a novel, simple network architecture based solely onan attention mechanism, dispensing with recurrence and convolutions entirely.Experiments on two machine translation tasks show these models to be superiorin quality while being more parallelizable and requiring significantly less timeto train. Our single model with 165 million parameters, achieves 27.5 BLEU onEnglish-to-German translation, improving over the existing best ensemble result by over 1 BLEU. On English-to-French translation, we outperform the previoussingle state-of-the-art with model by 0.7 BLEU, achieving a BLEU score of 41.1.},
   file = {C:\Users\storo\Zotero\storage\NB28868L\Vaswani et al. - 2017 - Attention is All you Need.pdf}
+}
+
+@article{wilsonSphericalHyperbolicEmbeddings2014,
+  title = {Spherical and {{Hyperbolic Embeddings}} of {{Data}}},
+  author = {Wilson, Richard C. and Hancock, Edwin R. and Pekalska, El{\.z}bieta and Duin, Robert P.W.},
+  year = {2014},
+  month = nov,
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume = {36},
+  number = {11},
+  pages = {2255--2269},
+  issn = {1939-3539},
+  doi = {10.1109/TPAMI.2014.2316836},
+  urldate = {2025-04-29},
+  abstract = {Many computer vision and pattern recognition problems may be posed as the analysis of a set of dissimilarities between objects. For many types of data, these dissimilarities are not euclidean (i.e., they do not represent the distances between points in a euclidean space), and therefore cannot be isometrically embedded in a euclidean space. Examples include shape-dissimilarities, graph distances and mesh geodesic distances. In this paper, we provide a means of embedding such non-euclidean data onto surfaces of constant curvature. We aim to embed the data on a space whose radius of curvature is determined by the dissimilarity data. The space can be either of positive curvature (spherical) or of negative curvature (hyperbolic). We give an efficient method for solving the spherical and hyperbolic embedding problems on symmetric dissimilarity data. Our approach gives the radius of curvature and a method for approximating the objects as points on a hyperspherical manifold without optimisation. For objects which do not reside exactly on the manifold, we develop a optimisation-based procedure for approximate embedding on a hyperspherical manifold. We use the exponential map between the manifold and its local tangent space to solve the optimisation problem locally in the euclidean tangent space. This process is efficient enough to allow us to embed data sets of several thousand objects. We apply our method to a variety of data including time warping functions, shape similarities, graph similarity and gesture similarity data. In each case the embedding maintains the local structure of the data while placing the points in a metric space.},
+  keywords = {Eigenvalues and eigenfunctions,Embedding,Geometry,hyperbolic,Kernel,Manifolds,Measurement,non-euclidean,Optimization,spherical,Vectors},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\5D5GS7LI\\Wilson et al. - 2014 - Spherical and Hyperbolic Embeddings of Data.pdf;C\:\\Users\\storo\\Zotero\\storage\\FFCR45NP\\6787114.html}
+}
+
+@misc{yangHypformerExploringEfficient2024,
+  title = {Hypformer: {{Exploring Efficient Hyperbolic Transformer Fully}} in {{Hyperbolic Space}}},
+  shorttitle = {Hypformer},
+  author = {Yang, Menglin and Verma, Harshit and Zhang, Delvin Ce and Liu, Jiahong and King, Irwin and Ying, Rex},
+  year = {2024},
+  month = jul,
+  number = {arXiv:2407.01290},
+  eprint = {2407.01290},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2407.01290},
+  urldate = {2025-04-29},
+  abstract = {Hyperbolic geometry have shown significant potential in modeling complex structured data, particularly those with underlying tree-like and hierarchical structures. Despite the impressive performance of various hyperbolic neural networks across numerous domains, research on adapting the Transformer to hyperbolic space remains limited. Previous attempts have mainly focused on modifying self-attention modules in the Transformer. However, these efforts have fallen short of developing a complete hyperbolic Transformer. This stems primarily from: (i) the absence of well-defined modules in hyperbolic space, including linear transformation layers, LayerNorm layers, activation functions, dropout operations, etc. (ii) the quadratic time complexity of the existing hyperbolic self-attention module w.r.t the number of input tokens, which hinders its scalability. To address these challenges, we propose, Hypformer, a novel hyperbolic Transformer based on the Lorentz model of hyperbolic geometry. In Hypformer, we introduce two foundational blocks that define the essential modules of the Transformer in hyperbolic space. Furthermore, we develop a linear self-attention mechanism in hyperbolic space, enabling hyperbolic Transformer to process billion-scale graph data and long-sequence inputs for the first time. Our experimental results confirm the effectiveness and efficiency of Hypformer across various datasets, demonstrating its potential as an effective and scalable solution for large-scale data representation and large models.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning},
+  file = {C\:\\Users\\storo\\Zotero\\storage\\V2KTIU8I\\Yang et al. - 2024 - Hypformer Exploring Efficient Hyperbolic Transformer Fully in Hyperbolic Space.pdf;C\:\\Users\\storo\\Zotero\\storage\\EJWHR8RS\\2407.html}
 }
