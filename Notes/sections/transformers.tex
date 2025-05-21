@@ -1,7 +1,109 @@
 \section{Transformers}\label{sec:transformers}
 
-\subsection{Natural language processing (NLP): word embeddings}\label{subsec:nlp_word_embeddings}
+\subsection{Natural language processing (NLP)}\label{subsec:nlp_word_embeddings}
 
+Natural language processing is field of study of linguistics and machine learning that focuses on understanding the interaction between computers and human language. In particular, it is related to the task of enabling computers to understand, interpret and generate human language. NLP comprises a wide range of tasks and techniques, including: 
+
+\begin{itemize}
+    \item Text classification: Assigning predefined categories to text documents based on their content. Examples include spam detection, sentiment analysis, topic classification and determining if a sentence is grammatically correct or not.  
+    \item Named entity recognition (NER): Identifying and classifying named entities in text, such as people, organizations, locations and dates.
+    \item Part-of-speech tagging: Assigning grammatical categories (e.g., noun, verb, adjective) to words in a sentence.
+    \item Machine translation: Automatically translating text from one language to another.
+    \item Text generation: Creating coherent and contextually relevant text based on a given input or prompt.
+    \item Question answering: Given a question and a context, extracting the answer to the question based on the information in the context.
+\end{itemize}
+
+\subsubsection{Word embeddings}\label{subsubsec:word_embeddings}
+
+Many languages can be seen as a collection of sequential data where each element of the sequence is a word and they are separated by white spaces along with punctuation symbols. The first step in processing this kind of data is to find a way to convert word into a numerical representation that is suitable to be used as input to a deep neural network. It is worth mentioning that the most simple approach to this task is to use a one-hot encoding representation of the words. This means that each word is represented as a vector of zeros with a single one at the position corresponding to the index of the word in some predetermined dictionary. For example, if we have a vocabulary of 10,000 words, the word \textit{cat} would be represented as a vector of size 10,000 with a one at the index corresponding to \textit{cat} and zeros everywhere else. Of course, a realistic vocabulary or dictionary might have several hundred thousand entries, leading to very large (high dimensional) representation vectors. Also this representation does not capture any semantic information about the words. For example, the words \textit{cat} and \textit{dog} would be represented by two different vectors that are orthogonal to each other, even though they are semantically related to the word \textit{animal}. Both issues can be addressed by using \emph{word embeddings}, which are dense vector representations of words that capture their semantic meaning. Word embeddings are typically learned from large corpora of text using unsupervised learning techniques. The idea is to represent words in a continuous vector space where semantically similar words are close to each other. 
+
+\subsubsection*{Word2vec}
+The embedding process can be described as follows: We suppose we have some dictionary of words of size $m$ and we want to represent words in an embedding space of dimension $N$. Then for each one-hot encoded input vector $x_i$ we can compute the corresponding embedding vector $y_i$ as follows:
+
+\begin{equation}
+    y_i = E x_i
+\end{equation}
+where $E$ is an $N \times m$ matrix of learnable parameters. The matrix $E$ is usually called the \emph{embedding matrix}. The idea is to learn the parameters of the embedding matrix $E$ in such a way that the resulting embedding vectors $y_i$ capture the semantic meaning of the input words. The matrix $E$ can be learned from a corpus (a large data set) of text. There are many techniques to learn the parameters of the embedding matrix. One of the most popular techniques is referred to as \emph{word2vec} \cite{mikolovEfficientEstimationWord2013}. This is just one of many frameworks to learning word vectors. 
+
+\begin{remark}
+    Notice that since the input vector $x_i$ has a one-hot encoding representation, the output vector $y_i$ is simply the $i$-th column of the embedding matrix $E$. This means that the embedding matrix can be seen as a collection of embedding vectors, one for each word in the dictionary. 
+\end{remark}
+
+The overall architecture behind the word2vec framework consists of a simple two-layer neural network. We will first state two general considerations and later we will delve into two specific architectures used in this framework: \emph{skip-gram} and \emph{continuous bag of words} (CBOW).  
+
+\begin{itemize}
+    \item We assume a \emph{distributional hypothesis}, which simply states that words that occur in similar contexts tend to have similar meanings. This means that if two words appear in the same context (e.g., in the same sentence or paragraph), they are likely to have similar meanings. This is a very strong assumption and it is not always true, but it is a good starting point for learning word embeddings.
+
+    \item The architecture consists of a shallow neural network with a single hidden layer. The input layer will receive one-hot encoded vectors of dimension $m$ (The length of our vocabulary). The hidden layer is a standard fully connected (Dense) layer whose weights are the word embeddings. The output layer will provide probabilities for the target words from the vocabulary. Notice that the number of units in the hidden layer is equal to the the length of the embedding vectors we want, \ie, $N$. 
+    
+    \begin{equation*}
+    \begin{tikzpicture}
+        % Input Layer
+        \Vertex[x=0, y=2.8,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=2.1,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=1.4,shape=rectangle, label={$0$},fontsize=\normalsize]{} 
+        \Vertex[x=0, y=0.7,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=0,shape=rectangle, label={$1$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=-0.7,shape=rectangle, label={$\vdots$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=-1.4,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=-2.1,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \Vertex[x=0, y=-2.8,shape=rectangle, label={$0$},fontsize=\normalsize]{}
+        \node (input) at (1,0) {};
+
+        % Hidden Layer
+        \Vertex[x=3, y=2.5, size=1, color=orange, opacity=0.2, label={$\Sigma$},fontsize=\normalsize]{H1}
+        \Vertex[x=3, y=1, size=1, color=orange, opacity=0.2, label={$\Sigma$},fontsize=\normalsize]{H2}
+        \Vertex[x=3, y=-0.5, size=1, color=orange, opacity=0.2,label={$\Sigma$},fontsize=\normalsize]{H3} 
+        \Text[x=3, y=-1.5,fontsize=\normalsize]{$\vdots$}
+        \Vertex[x=3, y=-2.5, size=1, color=orange, opacity=0.2,label={$\Sigma$},fontsize=\normalsize]{H4}
+        
+        % Output Layer
+        \Vertex[x=6, y=3, size=1, color=red, opacity=0.2, label={$\Sigma$}]{O1}
+        \Vertex[x=6, y=1.5, size=1, color=red, opacity=0.2, label={$\Sigma$}]{O2}
+        \Vertex[x=6, y=0, size=1, color=red, opacity=0.2, label={$\Sigma$}]{O3}
+        \Text[x=6, y=-1.5,fontsize=\normalsize]{$\vdots$}
+        \Vertex[x=6, y=-3, size=1, color=red, opacity=0.2, label={$\Sigma$}]{O4}
+
+        % Some nodes after the output layer
+        \node (T1) at (8.5,3)  {Probability};
+        \node (T2) at (8.5,1.5)  {Probability};
+        \node (T3) at (8.5,0)  {Probability};
+        \node (T4) at (8.5,-3)  {Probability};
+
+        % % Input to Hidden
+        \foreach \i in {1,...,4} {
+            \Edge[Direct,opacity=1](input)(H\i)
+        }
+        % Hidden to Output
+        \foreach \i in {1,...,4} {
+            \Edge[Direct,opacity=1](H1)(O\i)
+            \Edge[Direct,opacity=0.8](H2)(O\i)
+            \Edge[Direct,opacity=0.6](H3)(O\i)
+            \Edge[Direct,opacity=0.4](H4)(O\i)
+        }
+        
+        % Output arrows
+        \foreach \i in {1,...,4} {
+            \Edge[Direct,opacity=1](O\i)(T\i)
+        }
+
+        % Labels
+        \node at (3,4.2) {\textbf{Hidden Layer}};
+        \node at (6,4.2) {\textbf{Output Layer}};
+        \node at (0,4.2) {\textbf{Input Layer}};
+        \end{tikzpicture}  
+\end{equation*}
+\end{itemize}
+
+
+
+\subsection{Encoder - Decoder Architecture}\label{subsec:encoder_decoder}
+
+\subsubsection{Encoder}\label{subsubsec:encoder}
+
+
+
+\subsubsection{Decoder}\label{subsubsec:decoder}
 
 \subsection{Attention mechanism}\label{subsec:attention_mechanism}
 
@@ -146,7 +248,13 @@ We will then impose the following constraints on the attention weights:
     \end{equation}
     
     \begin{remark}
-        To avoid 
+        Recall that gradients of the softmax function become exponentially small for high magnitude inputs. To avoid these numerical issues, we can use rescale the product of the query and key vectors before applying softmax. This is done by dividing the dot product $Q K^\top$ by $\sqrt{m_k}$.  The \emph{scaled self-attention} then takes the form:
+        \begin{equation}\label{Eq.subsec.self_attention.4}
+            Y = \textrm{Softmax}\left(\frac{Q K^\top}{\sqrt{m_k}}\right) V
+        \end{equation}
     \end{remark}
+    The structure of the scaled self-attention layer is summarized in the following diagram: 
+
+    
 
 \subsection{Transformer models}\label{subsec:transformer_models}
